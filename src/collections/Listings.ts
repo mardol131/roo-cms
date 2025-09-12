@@ -1,13 +1,15 @@
+import { isAdminOrCreatedBy } from '@/functions/isAdminOrCreatedBy'
+import { isLoggedIn } from '@/functions/isLoggedIn'
 import type { CollectionConfig } from 'payload'
 
 export const Listings: CollectionConfig = {
   slug: 'listings',
   admin: {
-    useAsTitle: 'name',
+    useAsTitle: 'title',
   },
   fields: [
     {
-      name: 'name',
+      name: 'title',
       type: 'text',
       required: true,
       admin: {
@@ -15,7 +17,7 @@ export const Listings: CollectionConfig = {
       },
     },
     {
-      name: 'startingPrice',
+      name: 'ico',
       type: 'number',
       required: true,
       admin: {
@@ -23,25 +25,51 @@ export const Listings: CollectionConfig = {
       },
     },
     {
-      name: 'Advertiser',
-      type: 'relationship',
-      relationTo: 'advertisers',
+      name: 'email',
+      type: 'email',
+      required: true,
       admin: {
         position: 'sidebar',
       },
     },
     {
-      name: 'featuredImage',
-      type: 'text',
+      name: 'phone',
+      type: 'number',
+      max: 1000000000,
       required: true,
+      admin: {
+        position: 'sidebar',
+      },
     },
     {
-      name: 'category',
+      name: 'createdBy',
       type: 'relationship',
-      relationTo: 'categories',
+      relationTo: 'users',
+      access: {
+        update: () => true,
+      },
+      admin: {
+        readOnly: false,
+        position: 'sidebar',
+      },
     },
   ],
+  hooks: {
+    beforeChange: [
+      ({ req, operation, data }) => {
+        if (operation === 'create') {
+          if (req.user) {
+            data.createdBy = req.user?.id
+            return data
+          }
+        }
+      },
+    ],
+  },
   access: {
-    read: () => true,
+    read: isAdminOrCreatedBy,
+    create: isLoggedIn,
+    update: isAdminOrCreatedBy,
+    delete: isAdminOrCreatedBy,
   },
 }

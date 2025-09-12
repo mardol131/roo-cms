@@ -68,10 +68,9 @@ export interface Config {
   blocks: {};
   collections: {
     users: User;
-    media: Media;
     posts: Post;
-    advertisers: Advertiser;
     listings: Listing;
+    'sub-listings': SubListing;
     places: Place;
     categories: Category;
     'payload-locked-documents': PayloadLockedDocument;
@@ -81,10 +80,9 @@ export interface Config {
   collectionsJoins: {};
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
-    advertisers: AdvertisersSelect<false> | AdvertisersSelect<true>;
     listings: ListingsSelect<false> | ListingsSelect<true>;
+    'sub-listings': SubListingsSelect<false> | SubListingsSelect<true>;
     places: PlacesSelect<false> | PlacesSelect<true>;
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -150,25 +148,6 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  alt: string;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
@@ -195,11 +174,11 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "advertisers".
+ * via the `definition` "listings".
  */
-export interface Advertiser {
+export interface Listing {
   id: string;
-  name: string;
+  title: string;
   ico: number;
   email: string;
   phone: number;
@@ -209,14 +188,15 @@ export interface Advertiser {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "listings".
+ * via the `definition` "sub-listings".
  */
-export interface Listing {
+export interface SubListing {
   id: string;
-  name: string;
-  startingPrice: number;
-  Advertiser?: (string | null) | Advertiser;
-  featuredImage: string;
+  title?: string | null;
+  slug?: string | null;
+  startingPrice?: number | null;
+  Listing?: (string | null) | Listing;
+  featuredImage?: string | null;
   category?: (string | null) | Category;
   updatedAt: string;
   createdAt: string;
@@ -255,20 +235,16 @@ export interface PayloadLockedDocument {
         value: string | User;
       } | null)
     | ({
-        relationTo: 'media';
-        value: string | Media;
-      } | null)
-    | ({
         relationTo: 'posts';
         value: string | Post;
       } | null)
     | ({
-        relationTo: 'advertisers';
-        value: string | Advertiser;
-      } | null)
-    | ({
         relationTo: 'listings';
         value: string | Listing;
+      } | null)
+    | ({
+        relationTo: 'sub-listings';
+        value: string | SubListing;
       } | null)
     | ({
         relationTo: 'places';
@@ -345,24 +321,6 @@ export interface UsersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media_select".
- */
-export interface MediaSelect<T extends boolean = true> {
-  alt?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  url?: T;
-  thumbnailURL?: T;
-  filename?: T;
-  mimeType?: T;
-  filesize?: T;
-  width?: T;
-  height?: T;
-  focalX?: T;
-  focalY?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts_select".
  */
 export interface PostsSelect<T extends boolean = true> {
@@ -374,10 +332,10 @@ export interface PostsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "advertisers_select".
+ * via the `definition` "listings_select".
  */
-export interface AdvertisersSelect<T extends boolean = true> {
-  name?: T;
+export interface ListingsSelect<T extends boolean = true> {
+  title?: T;
   ico?: T;
   email?: T;
   phone?: T;
@@ -387,12 +345,13 @@ export interface AdvertisersSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "listings_select".
+ * via the `definition` "sub-listings_select".
  */
-export interface ListingsSelect<T extends boolean = true> {
-  name?: T;
+export interface SubListingsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
   startingPrice?: T;
-  Advertiser?: T;
+  Listing?: T;
   featuredImage?: T;
   category?: T;
   updatedAt?: T;
