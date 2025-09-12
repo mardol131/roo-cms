@@ -214,7 +214,6 @@ export interface Advertiser {
 export interface Listing {
   id: string;
   name: string;
-  slug?: string | null;
   startingPrice: number;
   Advertiser?: (string | null) | Advertiser;
   featuredImage: string;
@@ -392,7 +391,6 @@ export interface AdvertisersSelect<T extends boolean = true> {
  */
 export interface ListingsSelect<T extends boolean = true> {
   name?: T;
-  slug?: T;
   startingPrice?: T;
   Advertiser?: T;
   featuredImage?: T;
