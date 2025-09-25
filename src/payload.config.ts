@@ -12,6 +12,7 @@ import { Listings } from './collections/listings'
 import { SubListings } from './collections/subListings'
 import { Places } from './collections/places'
 import { Categories } from './collections/categories'
+import { Pages } from './collections/pages'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,8 +23,15 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      url: ({ data, collectionConfig, locale }) => {
+        console.log(data.slug)
+        return `http://localhost:3000/${data.slug}`
+      },
+      collections: ['pages'],
+    },
   },
-  collections: [Users, Posts, Listings, SubListings, Places, Categories],
+  collections: [Users, Posts, Listings, SubListings, Places, Categories, Pages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -37,4 +45,7 @@ export default buildConfig({
     payloadCloudPlugin(),
     // storage-adapter-placeholder
   ],
+  cors: {
+    origins: ['http://localhost:3000'],
+  },
 })
