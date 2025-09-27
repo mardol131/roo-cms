@@ -24,7 +24,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     livePreview: {
-      url: ({ data, collectionConfig, locale }) => {
+      url: ({ data }) => {
         console.log(data.slug)
         return `http://localhost:3000/${data.slug}`
       },

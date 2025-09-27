@@ -1,4 +1,6 @@
-import { CardsSectionBlock } from '@/blocks/cardSection/CardSectionBlock'
+import { CardsSectionBlock } from '@/blocks/cardSection/CardsSectionBlock'
+import { ComparisonSectionBlock } from '@/blocks/comparisonSection/ComparisonSectionBlock'
+import { FormSectionBlock } from '@/blocks/formSection/FormSectionBlock'
 import type { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {
@@ -24,7 +26,7 @@ export const Pages: CollectionConfig = {
       name: 'sections',
       type: 'blocks',
       required: true,
-      blocks: [CardsSectionBlock],
+      blocks: [CardsSectionBlock, ComparisonSectionBlock, FormSectionBlock],
     },
   ],
   access: {

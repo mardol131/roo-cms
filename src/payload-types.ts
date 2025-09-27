@@ -234,68 +234,227 @@ export interface Page {
   title: string;
   text?: string | null;
   slug?: string | null;
-  sections: {
-    heading: string;
-    headingColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-    cards: {
-      heading: string;
-      text: string;
-      icon?:
-        | (
-            | 'Anniversary'
-            | 'BabyShower'
-            | 'Ball'
-            | 'Birthday'
-            | 'CompanyParty'
-            | 'Engagement'
-            | 'KidParty'
-            | 'OpeningParty'
-            | 'Party'
-            | 'TeamBuilding'
-            | 'Wedding'
-          )
-        | null;
-      color: 'secondary' | 'primary' | 'tertiary' | 'black' | 'white';
-      href?: string | null;
-      id?: string | null;
-      blockName?: string | null;
-      blockType: 'cardsectioncard';
-    }[];
-    overlay?:
-      | (
-          | 'secondary'
-          | 'primary'
-          | 'tertiary'
-          | 'primarySecondaryOpac'
-          | 'primaryTertiaryOpac'
-          | 'secondaryTertiaryOpac'
-          | 'secondaryPrimaryOpac'
-          | 'tertiaryPrimaryOpac'
-          | 'tertiarySecondaryOpac'
-          | 'primarySecondaryTertiaryOpac'
-          | 'primaryTertiarySecondaryOpac'
-          | 'secondaryPrimaryTertiaryOpac'
-          | 'secondaryTertiryPrimaryOpac'
-          | 'tertiaryPrimarySecondaryOpac'
-          | 'tertiarySecondaryPrimaryOpac'
-          | 'primarySecondary'
-          | 'primaryTertiary'
-          | 'secondaryTertiary'
-          | 'secondaryPrimary'
-          | 'tertiaryPrimary'
-          | 'tertiarySecondary'
-          | 'primarySecondaryTertiary'
-          | 'primaryTertiarySecondary'
-          | 'secondaryPrimaryTertiary'
-          | 'secondaryTertiryPrimary'
-          | 'tertiaryPrimarySecondary'
-          | 'tertiarySecondaryPrimary'
-        )
-      | null;
-    id?: string | null;
-    blockName?: string | null;
-    blockType: 'cardssection';
-  }[];
+  sections: (
+    | {
+        heading: {
+          headingOne: string;
+          headingTwo?: string | null;
+          size?: ('sm' | 'md' | 'lg') | null;
+          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+          align?: ('start' | 'center' | 'end') | null;
+        };
+        cards: {
+          heading: string;
+          text: string;
+          icon?:
+            | (
+                | 'Anniversary'
+                | 'BabyShower'
+                | 'Ball'
+                | 'Birthday'
+                | 'CompanyParty'
+                | 'Engagement'
+                | 'KidParty'
+                | 'OpeningParty'
+                | 'Party'
+                | 'TeamBuilding'
+                | 'Wedding'
+              )
+            | null;
+          color: 'secondary' | 'primary' | 'tertiary' | 'black' | 'white';
+          href?: string | null;
+          id?: string | null;
+          blockName?: string | null;
+          blockType: 'cardsectioncard';
+        }[];
+        overlay?: {
+          overlayColor?:
+            | (
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary'
+              )
+            | null;
+          image?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'cardssection';
+      }
+    | {
+        heading: {
+          headingOne: string;
+          headingTwo?: string | null;
+          size?: ('sm' | 'md' | 'lg') | null;
+          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+          align?: ('start' | 'center' | 'end') | null;
+        };
+        for: {
+          heading: string;
+          points?:
+            | {
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        against: {
+          heading: string;
+          points?:
+            | {
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        overlay?: {
+          overlayColor?:
+            | (
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary'
+              )
+            | null;
+          image?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'comparisonsection';
+      }
+    | {
+        heading: {
+          headingOne: string;
+          headingTwo?: string | null;
+          size?: ('sm' | 'md' | 'lg') | null;
+          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+          align?: ('start' | 'center' | 'end') | null;
+        };
+        text: string;
+        image?: string | null;
+        button: {
+          text: string;
+        };
+        webhook: string;
+        fields: (
+          | {
+              label: string;
+              placeholder: string;
+              spanTwo?: ('true' | 'false') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'formtextinput';
+            }
+          | {
+              label: string;
+              placeholder: string;
+              spanTwo?: ('true' | 'false') | null;
+              options: {
+                text: string;
+                value: string;
+                id?: string | null;
+                blockName?: string | null;
+                blockType: 'formselectoptions';
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'formselectinput';
+            }
+          | {
+              label: string;
+              value: string;
+              spanTwo?: ('true' | 'false') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'formcheckboxinput';
+            }
+        )[];
+        overlay?: {
+          overlayColor?:
+            | (
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary'
+              )
+            | null;
+          image?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'formsection';
+      }
+  )[];
   updatedAt: string;
   createdAt: string;
 }
@@ -471,8 +630,15 @@ export interface PagesSelect<T extends boolean = true> {
         cardssection?:
           | T
           | {
-              heading?: T;
-              headingColor?: T;
+              heading?:
+                | T
+                | {
+                    headingOne?: T;
+                    headingTwo?: T;
+                    size?: T;
+                    color?: T;
+                    align?: T;
+                  };
               cards?:
                 | T
                 | {
@@ -488,7 +654,127 @@ export interface PagesSelect<T extends boolean = true> {
                           blockName?: T;
                         };
                   };
-              overlay?: T;
+              overlay?:
+                | T
+                | {
+                    overlayColor?: T;
+                    image?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        comparisonsection?:
+          | T
+          | {
+              heading?:
+                | T
+                | {
+                    headingOne?: T;
+                    headingTwo?: T;
+                    size?: T;
+                    color?: T;
+                    align?: T;
+                  };
+              for?:
+                | T
+                | {
+                    heading?: T;
+                    points?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                  };
+              against?:
+                | T
+                | {
+                    heading?: T;
+                    points?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                  };
+              overlay?:
+                | T
+                | {
+                    overlayColor?: T;
+                    image?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        formsection?:
+          | T
+          | {
+              heading?:
+                | T
+                | {
+                    headingOne?: T;
+                    headingTwo?: T;
+                    size?: T;
+                    color?: T;
+                    align?: T;
+                  };
+              text?: T;
+              image?: T;
+              button?:
+                | T
+                | {
+                    text?: T;
+                  };
+              webhook?: T;
+              fields?:
+                | T
+                | {
+                    formtextinput?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                          spanTwo?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    formselectinput?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                          spanTwo?: T;
+                          options?:
+                            | T
+                            | {
+                                formselectoptions?:
+                                  | T
+                                  | {
+                                      text?: T;
+                                      value?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    formcheckboxinput?:
+                      | T
+                      | {
+                          label?: T;
+                          value?: T;
+                          spanTwo?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              overlay?:
+                | T
+                | {
+                    overlayColor?: T;
+                    image?: T;
+                  };
               id?: T;
               blockName?: T;
             };
