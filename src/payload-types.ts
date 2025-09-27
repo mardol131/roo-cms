@@ -234,6 +234,68 @@ export interface Page {
   title: string;
   text?: string | null;
   slug?: string | null;
+  sections: {
+    heading: string;
+    headingColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+    cards: {
+      heading: string;
+      text: string;
+      icon?:
+        | (
+            | 'Anniversary'
+            | 'BabyShower'
+            | 'Ball'
+            | 'Birthday'
+            | 'CompanyParty'
+            | 'Engagement'
+            | 'KidParty'
+            | 'OpeningParty'
+            | 'Party'
+            | 'TeamBuilding'
+            | 'Wedding'
+          )
+        | null;
+      color: 'secondary' | 'primary' | 'tertiary' | 'black' | 'white';
+      href?: string | null;
+      id?: string | null;
+      blockName?: string | null;
+      blockType: 'cardsectioncard';
+    }[];
+    overlay?:
+      | (
+          | 'secondary'
+          | 'primary'
+          | 'tertiary'
+          | 'primarySecondaryOpac'
+          | 'primaryTertiaryOpac'
+          | 'secondaryTertiaryOpac'
+          | 'secondaryPrimaryOpac'
+          | 'tertiaryPrimaryOpac'
+          | 'tertiarySecondaryOpac'
+          | 'primarySecondaryTertiaryOpac'
+          | 'primaryTertiarySecondaryOpac'
+          | 'secondaryPrimaryTertiaryOpac'
+          | 'secondaryTertiryPrimaryOpac'
+          | 'tertiaryPrimarySecondaryOpac'
+          | 'tertiarySecondaryPrimaryOpac'
+          | 'primarySecondary'
+          | 'primaryTertiary'
+          | 'secondaryTertiary'
+          | 'secondaryPrimary'
+          | 'tertiaryPrimary'
+          | 'tertiarySecondary'
+          | 'primarySecondaryTertiary'
+          | 'primaryTertiarySecondary'
+          | 'secondaryPrimaryTertiary'
+          | 'secondaryTertiryPrimary'
+          | 'tertiaryPrimarySecondary'
+          | 'tertiarySecondaryPrimary'
+        )
+      | null;
+    id?: string | null;
+    blockName?: string | null;
+    blockType: 'cardssection';
+  }[];
   updatedAt: string;
   createdAt: string;
 }
@@ -403,6 +465,34 @@ export interface PagesSelect<T extends boolean = true> {
   title?: T;
   text?: T;
   slug?: T;
+  sections?:
+    | T
+    | {
+        cardssection?:
+          | T
+          | {
+              heading?: T;
+              headingColor?: T;
+              cards?:
+                | T
+                | {
+                    cardsectioncard?:
+                      | T
+                      | {
+                          heading?: T;
+                          text?: T;
+                          icon?: T;
+                          color?: T;
+                          href?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              overlay?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }

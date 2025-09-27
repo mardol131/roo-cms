@@ -1,3 +1,4 @@
+import { CardsSectionBlock } from '@/blocks/cardSection/CardSectionBlock'
 import type { CollectionConfig } from 'payload'
 
 export const Pages: CollectionConfig = {
@@ -19,5 +20,14 @@ export const Pages: CollectionConfig = {
       name: 'slug',
       type: 'text',
     },
+    {
+      name: 'sections',
+      type: 'blocks',
+      required: true,
+      blocks: [CardsSectionBlock],
+    },
   ],
+  access: {
+    read: () => true,
+  },
 }
