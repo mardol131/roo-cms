@@ -34,7 +34,6 @@ export const TextImageSectionBlock: Block = {
         { name: 'text', type: 'text', required: true },
         { name: 'url', type: 'text', required: true },
       ],
-      required: true,
     },
     overlayField,
   ],
