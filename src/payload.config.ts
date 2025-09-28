@@ -25,8 +25,7 @@ export default buildConfig({
     },
     livePreview: {
       url: ({ data }) => {
-        console.log(data.slug)
-        return `http://localhost:3000/${data.slug}`
+        return `http://localhost:3000/${data.pageSlug}`
       },
       collections: ['pages'],
     },

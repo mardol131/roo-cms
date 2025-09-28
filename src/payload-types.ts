@@ -233,15 +233,128 @@ export interface Page {
   id: string;
   title: string;
   text?: string | null;
-  slug?: string | null;
+  pageSlug?: string | null;
   sections: (
     | {
         heading: {
           headingOne: string;
           headingTwo?: string | null;
-          size?: ('sm' | 'md' | 'lg') | null;
+          size?: ('sm' | 'md' | 'lg' | 'xl') | null;
           color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
           align?: ('start' | 'center' | 'end') | null;
+          level?: ('h1' | 'h2' | 'h3') | null;
+        };
+        text: {
+          text: string;
+          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+        };
+        buttonText: string;
+        buttonUrl: string;
+        image: string;
+        bgColor?:
+          | (
+              | 'secondary'
+              | 'primary'
+              | 'tertiary'
+              | 'primarySecondaryOpac'
+              | 'primaryTertiaryOpac'
+              | 'secondaryTertiaryOpac'
+              | 'secondaryPrimaryOpac'
+              | 'tertiaryPrimaryOpac'
+              | 'tertiarySecondaryOpac'
+              | 'primarySecondaryTertiaryOpac'
+              | 'primaryTertiarySecondaryOpac'
+              | 'secondaryPrimaryTertiaryOpac'
+              | 'secondaryTertiryPrimaryOpac'
+              | 'tertiaryPrimarySecondaryOpac'
+              | 'tertiarySecondaryPrimaryOpac'
+              | 'primarySecondary'
+              | 'primaryTertiary'
+              | 'secondaryTertiary'
+              | 'secondaryPrimary'
+              | 'tertiaryPrimary'
+              | 'tertiarySecondary'
+              | 'primarySecondaryTertiary'
+              | 'primaryTertiarySecondary'
+              | 'secondaryPrimaryTertiary'
+              | 'secondaryTertiryPrimary'
+              | 'tertiaryPrimarySecondary'
+              | 'tertiarySecondaryPrimary'
+            )
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'herobackgroundimage';
+      }
+    | {
+        heading: {
+          headingOne: string;
+          headingTwo?: string | null;
+          size?: ('sm' | 'md' | 'lg' | 'xl') | null;
+          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+          align?: ('start' | 'center' | 'end') | null;
+          level?: ('h1' | 'h2' | 'h3') | null;
+        };
+        textOne: {
+          text: string;
+          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+        };
+        textTwo: {
+          text: string;
+          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+        };
+        image: string;
+        imageSide?: ('left' | 'right') | null;
+        button: {
+          text: string;
+          url: string;
+        };
+        overlay?: {
+          overlayColor?:
+            | (
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary'
+              )
+            | null;
+          image?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'textimagesection';
+      }
+    | {
+        heading: {
+          headingOne: string;
+          headingTwo?: string | null;
+          size?: ('sm' | 'md' | 'lg' | 'xl') | null;
+          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+          align?: ('start' | 'center' | 'end') | null;
+          level?: ('h1' | 'h2' | 'h3') | null;
         };
         cards: {
           heading: string;
@@ -309,9 +422,10 @@ export interface Page {
         heading: {
           headingOne: string;
           headingTwo?: string | null;
-          size?: ('sm' | 'md' | 'lg') | null;
+          size?: ('sm' | 'md' | 'lg' | 'xl') | null;
           color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
           align?: ('start' | 'center' | 'end') | null;
+          level?: ('h1' | 'h2' | 'h3') | null;
         };
         for: {
           heading: string;
@@ -373,9 +487,10 @@ export interface Page {
         heading: {
           headingOne: string;
           headingTwo?: string | null;
-          size?: ('sm' | 'md' | 'lg') | null;
+          size?: ('sm' | 'md' | 'lg' | 'xl') | null;
           color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
           align?: ('start' | 'center' | 'end') | null;
+          level?: ('h1' | 'h2' | 'h3') | null;
         };
         text: string;
         image?: string | null;
@@ -453,6 +568,75 @@ export interface Page {
         id?: string | null;
         blockName?: string | null;
         blockType: 'formsection';
+      }
+    | {
+        text: string;
+        bubbles: (
+          | {
+              heading?: string | null;
+              text?: string | null;
+              textColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+              color?:
+                | (
+                    | 'secondary'
+                    | 'primary'
+                    | 'tertiary'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              column: {
+                start: number;
+                end: number;
+              };
+              row: {
+                start: number;
+                end: number;
+              };
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'masonrybubble';
+            }
+          | {
+              image: string;
+              column: {
+                start: number;
+                end: number;
+              };
+              row: {
+                start: number;
+                end: number;
+              };
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'masonrybubbleimage';
+            }
+        )[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'masonrysection';
       }
   )[];
   updatedAt: string;
@@ -623,10 +807,78 @@ export interface CategoriesSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   text?: T;
-  slug?: T;
+  pageSlug?: T;
   sections?:
     | T
     | {
+        herobackgroundimage?:
+          | T
+          | {
+              heading?:
+                | T
+                | {
+                    headingOne?: T;
+                    headingTwo?: T;
+                    size?: T;
+                    color?: T;
+                    align?: T;
+                    level?: T;
+                  };
+              text?:
+                | T
+                | {
+                    text?: T;
+                    color?: T;
+                  };
+              buttonText?: T;
+              buttonUrl?: T;
+              image?: T;
+              bgColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        textimagesection?:
+          | T
+          | {
+              heading?:
+                | T
+                | {
+                    headingOne?: T;
+                    headingTwo?: T;
+                    size?: T;
+                    color?: T;
+                    align?: T;
+                    level?: T;
+                  };
+              textOne?:
+                | T
+                | {
+                    text?: T;
+                    color?: T;
+                  };
+              textTwo?:
+                | T
+                | {
+                    text?: T;
+                    color?: T;
+                  };
+              image?: T;
+              imageSide?: T;
+              button?:
+                | T
+                | {
+                    text?: T;
+                    url?: T;
+                  };
+              overlay?:
+                | T
+                | {
+                    overlayColor?: T;
+                    image?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
         cardssection?:
           | T
           | {
@@ -638,6 +890,7 @@ export interface PagesSelect<T extends boolean = true> {
                     size?: T;
                     color?: T;
                     align?: T;
+                    level?: T;
                   };
               cards?:
                 | T
@@ -674,6 +927,7 @@ export interface PagesSelect<T extends boolean = true> {
                     size?: T;
                     color?: T;
                     align?: T;
+                    level?: T;
                   };
               for?:
                 | T
@@ -717,6 +971,7 @@ export interface PagesSelect<T extends boolean = true> {
                     size?: T;
                     color?: T;
                     align?: T;
+                    level?: T;
                   };
               text?: T;
               image?: T;
@@ -774,6 +1029,58 @@ export interface PagesSelect<T extends boolean = true> {
                 | {
                     overlayColor?: T;
                     image?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        masonrysection?:
+          | T
+          | {
+              text?: T;
+              bubbles?:
+                | T
+                | {
+                    masonrybubble?:
+                      | T
+                      | {
+                          heading?: T;
+                          text?: T;
+                          textColor?: T;
+                          color?: T;
+                          column?:
+                            | T
+                            | {
+                                start?: T;
+                                end?: T;
+                              };
+                          row?:
+                            | T
+                            | {
+                                start?: T;
+                                end?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    masonrybubbleimage?:
+                      | T
+                      | {
+                          image?: T;
+                          column?:
+                            | T
+                            | {
+                                start?: T;
+                                end?: T;
+                              };
+                          row?:
+                            | T
+                            | {
+                                start?: T;
+                                end?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               id?: T;
               blockName?: T;
