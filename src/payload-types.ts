@@ -231,8 +231,22 @@ export interface Place {
  */
 export interface Page {
   id: string;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   title: string;
-  text?: string | null;
   pageSlug?: string | null;
   sections: (
     | {
@@ -243,6 +257,7 @@ export interface Page {
           color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
           align?: ('start' | 'center' | 'end') | null;
           level?: ('h1' | 'h2' | 'h3') | null;
+          weight?: number | null;
         };
         text: {
           text: string;
@@ -287,27 +302,46 @@ export interface Page {
         blockType: 'herobackgroundimage';
       }
     | {
-        heading: {
-          headingOne: string;
-          headingTwo?: string | null;
-          size?: ('sm' | 'md' | 'lg' | 'xl') | null;
-          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-          align?: ('start' | 'center' | 'end') | null;
-          level?: ('h1' | 'h2' | 'h3') | null;
-        };
-        textOne: {
-          text: string;
-          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-        };
-        textTwo: {
-          text: string;
-          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+        text: {
+          richText: {
+            root: {
+              type: string;
+              children: {
+                type: string;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          };
+          richTextColors?: {
+            h1?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+            h2?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+            h3?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+            h4?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+            h5?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+            h6?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+            paragraph?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+          };
+          richTextWeights?: {
+            h1?: number | null;
+            h2?: number | null;
+            h3?: number | null;
+            h4?: number | null;
+            h5?: number | null;
+            h6?: number | null;
+            paragraph?: number | null;
+          };
         };
         image: string;
         imageSide?: ('left' | 'right') | null;
-        button: {
-          text: string;
-          url: string;
+        button?: {
+          text?: string | null;
+          url?: string | null;
         };
         overlay?: {
           overlayColor?:
@@ -355,10 +389,45 @@ export interface Page {
           color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
           align?: ('start' | 'center' | 'end') | null;
           level?: ('h1' | 'h2' | 'h3') | null;
+          weight?: number | null;
         };
         cards: {
-          heading: string;
-          text: string;
+          text: {
+            richText: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            richTextColors?: {
+              h1?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+              h2?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+              h3?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+              h4?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+              h5?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+              h6?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+              paragraph?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
+            };
+            richTextWeights?: {
+              h1?: number | null;
+              h2?: number | null;
+              h3?: number | null;
+              h4?: number | null;
+              h5?: number | null;
+              h6?: number | null;
+              paragraph?: number | null;
+            };
+          };
+          align?: ('start' | 'center' | 'end') | null;
           icon?:
             | (
                 | 'Anniversary'
@@ -426,6 +495,7 @@ export interface Page {
           color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
           align?: ('start' | 'center' | 'end') | null;
           level?: ('h1' | 'h2' | 'h3') | null;
+          weight?: number | null;
         };
         for: {
           heading: string;
@@ -491,6 +561,7 @@ export interface Page {
           color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
           align?: ('start' | 'center' | 'end') | null;
           level?: ('h1' | 'h2' | 'h3') | null;
+          weight?: number | null;
         };
         text: string;
         image?: string | null;
@@ -805,8 +876,8 @@ export interface CategoriesSelect<T extends boolean = true> {
  * via the `definition` "pages_select".
  */
 export interface PagesSelect<T extends boolean = true> {
-  title?: T;
   text?: T;
+  title?: T;
   pageSlug?: T;
   sections?:
     | T
@@ -823,6 +894,7 @@ export interface PagesSelect<T extends boolean = true> {
                     color?: T;
                     align?: T;
                     level?: T;
+                    weight?: T;
                   };
               text?:
                 | T
@@ -840,27 +912,32 @@ export interface PagesSelect<T extends boolean = true> {
         textimagesection?:
           | T
           | {
-              heading?:
+              text?:
                 | T
                 | {
-                    headingOne?: T;
-                    headingTwo?: T;
-                    size?: T;
-                    color?: T;
-                    align?: T;
-                    level?: T;
-                  };
-              textOne?:
-                | T
-                | {
-                    text?: T;
-                    color?: T;
-                  };
-              textTwo?:
-                | T
-                | {
-                    text?: T;
-                    color?: T;
+                    richText?: T;
+                    richTextColors?:
+                      | T
+                      | {
+                          h1?: T;
+                          h2?: T;
+                          h3?: T;
+                          h4?: T;
+                          h5?: T;
+                          h6?: T;
+                          paragraph?: T;
+                        };
+                    richTextWeights?:
+                      | T
+                      | {
+                          h1?: T;
+                          h2?: T;
+                          h3?: T;
+                          h4?: T;
+                          h5?: T;
+                          h6?: T;
+                          paragraph?: T;
+                        };
                   };
               image?: T;
               imageSide?: T;
@@ -891,6 +968,7 @@ export interface PagesSelect<T extends boolean = true> {
                     color?: T;
                     align?: T;
                     level?: T;
+                    weight?: T;
                   };
               cards?:
                 | T
@@ -898,8 +976,34 @@ export interface PagesSelect<T extends boolean = true> {
                     cardsectioncard?:
                       | T
                       | {
-                          heading?: T;
-                          text?: T;
+                          text?:
+                            | T
+                            | {
+                                richText?: T;
+                                richTextColors?:
+                                  | T
+                                  | {
+                                      h1?: T;
+                                      h2?: T;
+                                      h3?: T;
+                                      h4?: T;
+                                      h5?: T;
+                                      h6?: T;
+                                      paragraph?: T;
+                                    };
+                                richTextWeights?:
+                                  | T
+                                  | {
+                                      h1?: T;
+                                      h2?: T;
+                                      h3?: T;
+                                      h4?: T;
+                                      h5?: T;
+                                      h6?: T;
+                                      paragraph?: T;
+                                    };
+                              };
+                          align?: T;
                           icon?: T;
                           color?: T;
                           href?: T;
@@ -928,6 +1032,7 @@ export interface PagesSelect<T extends boolean = true> {
                     color?: T;
                     align?: T;
                     level?: T;
+                    weight?: T;
                   };
               for?:
                 | T
@@ -972,6 +1077,7 @@ export interface PagesSelect<T extends boolean = true> {
                     color?: T;
                     align?: T;
                     level?: T;
+                    weight?: T;
                   };
               text?: T;
               image?: T;

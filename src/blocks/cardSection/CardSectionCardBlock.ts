@@ -2,20 +2,14 @@ import { textColor } from '@/design/colors'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { iconsListString } from '@/icons/iconsList'
 import { Block } from 'payload'
+import { richTextField } from '../global/fields'
+import { textAlign } from '@/design/orientation'
 
 export const CardSectionCardBlock: Block = {
   slug: 'cardsectioncard',
   fields: [
-    {
-      name: 'heading',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'text',
-      type: 'text',
-      required: true,
-    },
+    richTextField,
+    { name: 'align', type: 'select', options: getOptionsFromObject(textAlign) },
     {
       name: 'icon',
       type: 'select',

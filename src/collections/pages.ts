@@ -12,14 +12,11 @@ export const Pages: CollectionConfig = {
     useAsTitle: 'title',
   },
   fields: [
+    { name: 'text', type: 'richText' },
     {
       name: 'title',
       type: 'text',
       required: true,
-    },
-    {
-      name: 'text',
-      type: 'text',
     },
     {
       name: 'pageSlug',
