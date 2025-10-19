@@ -1,10 +1,11 @@
 import { Block } from 'payload'
-import { headingField, overlayField } from '../global/fields'
+import { headingField, overlayField } from '../_global/fields'
+import { textsField } from '../_blocks/textBlock'
 
 export const ComparisonSectionBlock: Block = {
-  slug: 'comparisonsection',
+  slug: 'ComparisonSection',
   fields: [
-    headingField,
+    textsField,
     {
       label: 'Pro',
       type: 'collapsible',
@@ -14,12 +15,13 @@ export const ComparisonSectionBlock: Block = {
           name: 'for',
           type: 'group',
           fields: [
-            { name: 'heading', type: 'text', required: true },
+            textsField,
             {
               name: 'points',
               type: 'array',
               fields: [{ name: 'text', type: 'text', required: true }],
             },
+            overlayField,
           ],
           required: true,
         },
@@ -34,17 +36,17 @@ export const ComparisonSectionBlock: Block = {
           name: 'against',
           type: 'group',
           fields: [
-            { name: 'heading', type: 'text', required: true },
+            textsField,
             {
               name: 'points',
               type: 'array',
               fields: [{ name: 'text', type: 'text', required: true }],
             },
+            overlayField,
           ],
           required: true,
         },
       ],
     },
-    overlayField,
   ],
 }

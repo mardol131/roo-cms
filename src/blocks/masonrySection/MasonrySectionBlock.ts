@@ -1,11 +1,13 @@
 import { Block } from 'payload'
 import { MasonryBubbleBlock, MasonryBubbleImageBlock } from './MasonryBubbleBlock'
-import { getRichTextField, overlayField } from '../global/fields'
+import { buttonsField, getRichTextField, overlayField } from '../_global/fields'
+import { getTextsField, textsField } from '../_blocks/textBlock'
 
 export const MasonrySectionBlock: Block = {
-  slug: 'masonrysection',
+  slug: 'MasonrySection',
   fields: [
-    getRichTextField(),
+    getTextsField('textsTop'),
+    getTextsField('textsBottom'),
     {
       name: 'bubbles',
       type: 'blocks',
@@ -13,5 +15,6 @@ export const MasonrySectionBlock: Block = {
       required: true,
     },
     overlayField,
+    buttonsField,
   ],
 }

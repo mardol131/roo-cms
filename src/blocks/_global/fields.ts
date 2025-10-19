@@ -4,10 +4,10 @@ import { textAlign } from '@/design/orientation'
 import { headingLevels, landingHeading } from '@/design/text'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { Field } from 'payload'
-import { ButtonBlock } from '../globalBlocks/buttonBlock'
+import { ButtonBlock } from '../_blocks/buttonBlock'
 import { buttonType, rounding } from '../types/buttonTypes'
 import { fontWeight } from '../types/textTypes'
-import { InputWidgetBlock } from '../globalBlocks/widgetsBlocks'
+import { InputWidgetBlock } from '../_blocks/widgetsBlocks'
 
 export const overlayField: Field = {
   label: 'Pozadí sekce',
@@ -230,6 +230,15 @@ export function getRichTextField(name?: string) {
   }
 
   return richTextField
+}
+
+export const imageField: Field = {
+  name: 'image',
+  type: 'group',
+  fields: [
+    { name: 'src', type: 'text', required: true },
+    { name: 'alt', type: 'text', required: true },
+  ],
 }
 
 // export type ButtonPropsType = {

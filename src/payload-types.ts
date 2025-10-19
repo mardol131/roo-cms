@@ -248,122 +248,33 @@ export interface Page {
   } | null;
   title: string;
   pageSlug?: string | null;
-  sections: {
-    texts?:
-      | {
-          level?:
-            | (
-                | 'h1'
-                | 'h2'
-                | 'h3'
-                | 'h4'
-                | 'h5'
-                | 'label1'
-                | 'label2'
-                | 'label3'
-                | 'label4'
-                | 'label5'
-                | 'label6'
-                | 'label7'
-                | 'label8'
-                | 'paragraph1'
-                | 'paragraph2'
-                | 'paragraph3'
-                | 'paragraph4'
-                | 'paragraph5'
-              )
-            | null;
-          color:
-            | 'secondary'
-            | 'primary'
-            | 'tertiary'
-            | 'black'
-            | 'white'
-            | 'textLight'
-            | 'primarySecondaryOpac'
-            | 'primaryTertiaryOpac'
-            | 'secondaryTertiaryOpac'
-            | 'secondaryPrimaryOpac'
-            | 'tertiaryPrimaryOpac'
-            | 'tertiarySecondaryOpac'
-            | 'primarySecondaryTertiaryOpac'
-            | 'primaryTertiarySecondaryOpac'
-            | 'secondaryPrimaryTertiaryOpac'
-            | 'secondaryTertiryPrimaryOpac'
-            | 'tertiaryPrimarySecondaryOpac'
-            | 'tertiarySecondaryPrimaryOpac'
-            | 'primarySecondary'
-            | 'primaryTertiary'
-            | 'secondaryTertiary'
-            | 'secondaryPrimary'
-            | 'tertiaryPrimary'
-            | 'tertiarySecondary'
-            | 'primarySecondaryTertiary'
-            | 'primaryTertiarySecondary'
-            | 'secondaryPrimaryTertiary'
-            | 'secondaryTertiryPrimary'
-            | 'tertiaryPrimarySecondary'
-            | 'tertiarySecondaryPrimary';
-          text: string;
-          className?: string | null;
-          fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'TextBlock';
-        }[]
-      | null;
-    overlay?: {
-      overlayColor?:
-        | (
-            | 'white'
-            | 'secondary'
-            | 'secondaryOpac'
-            | 'primary'
-            | 'primaryOpac'
-            | 'tertiary'
-            | 'tertiaryOpac'
-            | 'whiteOpac'
-            | 'blackTransparent'
-            | 'transparentBlack'
-            | 'primaryTransparent'
-            | 'secondaryTransparent'
-            | 'tertiaryTransparent'
-            | 'transparentPrimary'
-            | 'transparentSecondary'
-            | 'transparentTertiary'
-            | 'primarySecondaryOpac'
-            | 'primaryTertiaryOpac'
-            | 'secondaryTertiaryOpac'
-            | 'secondaryPrimaryOpac'
-            | 'tertiaryPrimaryOpac'
-            | 'tertiarySecondaryOpac'
-            | 'primarySecondaryTertiaryOpac'
-            | 'primaryTertiarySecondaryOpac'
-            | 'secondaryPrimaryTertiaryOpac'
-            | 'secondaryTertiryPrimaryOpac'
-            | 'tertiaryPrimarySecondaryOpac'
-            | 'tertiarySecondaryPrimaryOpac'
-            | 'primarySecondary'
-            | 'primaryTertiary'
-            | 'secondaryTertiary'
-            | 'secondaryPrimary'
-            | 'tertiaryPrimary'
-            | 'tertiarySecondary'
-            | 'primarySecondaryTertiary'
-            | 'primaryTertiarySecondary'
-            | 'secondaryPrimaryTertiary'
-            | 'secondaryTertiryPrimary'
-            | 'tertiaryPrimarySecondary'
-            | 'tertiarySecondaryPrimary'
-          )
-        | null;
-      image?: string | null;
-    };
-    buttons?:
-      | {
-          text: string;
-          textColor?:
-            | (
+  sections: (
+    | {
+        texts?:
+          | {
+              level?:
+                | (
+                    | 'h1'
+                    | 'h2'
+                    | 'h3'
+                    | 'h4'
+                    | 'h5'
+                    | 'label1'
+                    | 'label2'
+                    | 'label3'
+                    | 'label4'
+                    | 'label5'
+                    | 'label6'
+                    | 'label7'
+                    | 'label8'
+                    | 'paragraph1'
+                    | 'paragraph2'
+                    | 'paragraph3'
+                    | 'paragraph4'
+                    | 'paragraph5'
+                  )
+                | null;
+              color:
                 | 'secondary'
                 | 'primary'
                 | 'tertiary'
@@ -393,9 +304,1005 @@ export interface Page {
                 | 'secondaryPrimaryTertiary'
                 | 'secondaryTertiryPrimary'
                 | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary';
+              text: string;
+              className?: string | null;
+              fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TextBlock';
+            }[]
+          | null;
+        overlay?: {
+          overlayColor?:
+            | (
+                | 'white'
+                | 'secondary'
+                | 'secondaryOpac'
+                | 'primary'
+                | 'primaryOpac'
+                | 'tertiary'
+                | 'tertiaryOpac'
+                | 'whiteOpac'
+                | 'blackTransparent'
+                | 'transparentBlack'
+                | 'primaryTransparent'
+                | 'secondaryTransparent'
+                | 'tertiaryTransparent'
+                | 'transparentPrimary'
+                | 'transparentSecondary'
+                | 'transparentTertiary'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
                 | 'tertiarySecondaryPrimary'
               )
             | null;
+          image?: string | null;
+        };
+        buttons?:
+          | {
+              text: string;
+              textColor?:
+                | (
+                    | 'secondary'
+                    | 'primary'
+                    | 'tertiary'
+                    | 'black'
+                    | 'white'
+                    | 'textLight'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              bgColor?:
+                | (
+                    | 'white'
+                    | 'secondary'
+                    | 'secondaryOpac'
+                    | 'primary'
+                    | 'primaryOpac'
+                    | 'tertiary'
+                    | 'tertiaryOpac'
+                    | 'whiteOpac'
+                    | 'blackTransparent'
+                    | 'transparentBlack'
+                    | 'primaryTransparent'
+                    | 'secondaryTransparent'
+                    | 'tertiaryTransparent'
+                    | 'transparentPrimary'
+                    | 'transparentSecondary'
+                    | 'transparentTertiary'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+              rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
+              className?: string | null;
+              type?: ('submit' | 'button' | 'reset') | null;
+              link?: string | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'ButtonBlock';
+            }[]
+          | null;
+        widgets?:
+          | {
+              label: string;
+              placeholder: string;
+              webhook: string;
+              button: {
+                text: string;
+                textColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white' | 'textLight') | null;
+                bgColor?:
+                  | (
+                      | 'white'
+                      | 'secondary'
+                      | 'secondaryOpac'
+                      | 'primary'
+                      | 'primaryOpac'
+                      | 'tertiary'
+                      | 'tertiaryOpac'
+                      | 'whiteOpac'
+                      | 'blackTransparent'
+                      | 'transparentBlack'
+                      | 'primaryTransparent'
+                      | 'secondaryTransparent'
+                      | 'tertiaryTransparent'
+                      | 'transparentPrimary'
+                      | 'transparentSecondary'
+                      | 'transparentTertiary'
+                      | 'primarySecondaryOpac'
+                      | 'primaryTertiaryOpac'
+                      | 'secondaryTertiaryOpac'
+                      | 'secondaryPrimaryOpac'
+                      | 'tertiaryPrimaryOpac'
+                      | 'tertiarySecondaryOpac'
+                      | 'primarySecondaryTertiaryOpac'
+                      | 'primaryTertiarySecondaryOpac'
+                      | 'secondaryPrimaryTertiaryOpac'
+                      | 'secondaryTertiryPrimaryOpac'
+                      | 'tertiaryPrimarySecondaryOpac'
+                      | 'tertiarySecondaryPrimaryOpac'
+                      | 'primarySecondary'
+                      | 'primaryTertiary'
+                      | 'secondaryTertiary'
+                      | 'secondaryPrimary'
+                      | 'tertiaryPrimary'
+                      | 'tertiarySecondary'
+                      | 'primarySecondaryTertiary'
+                      | 'primaryTertiarySecondary'
+                      | 'secondaryPrimaryTertiary'
+                      | 'secondaryTertiryPrimary'
+                      | 'tertiaryPrimarySecondary'
+                      | 'tertiarySecondaryPrimary'
+                    )
+                  | null;
+                size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+                rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
+                className?: string | null;
+                type?: ('submit' | 'button' | 'reset') | null;
+                link?: string | null;
+              };
+              successText?: string | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'inputWidget';
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'BannerSection';
+      }
+    | {
+        texts?:
+          | {
+              level?:
+                | (
+                    | 'h1'
+                    | 'h2'
+                    | 'h3'
+                    | 'h4'
+                    | 'h5'
+                    | 'label1'
+                    | 'label2'
+                    | 'label3'
+                    | 'label4'
+                    | 'label5'
+                    | 'label6'
+                    | 'label7'
+                    | 'label8'
+                    | 'paragraph1'
+                    | 'paragraph2'
+                    | 'paragraph3'
+                    | 'paragraph4'
+                    | 'paragraph5'
+                  )
+                | null;
+              color:
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'black'
+                | 'white'
+                | 'textLight'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary';
+              text: string;
+              className?: string | null;
+              fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TextBlock';
+            }[]
+          | null;
+        buttons?:
+          | {
+              text: string;
+              textColor?:
+                | (
+                    | 'secondary'
+                    | 'primary'
+                    | 'tertiary'
+                    | 'black'
+                    | 'white'
+                    | 'textLight'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              bgColor?:
+                | (
+                    | 'white'
+                    | 'secondary'
+                    | 'secondaryOpac'
+                    | 'primary'
+                    | 'primaryOpac'
+                    | 'tertiary'
+                    | 'tertiaryOpac'
+                    | 'whiteOpac'
+                    | 'blackTransparent'
+                    | 'transparentBlack'
+                    | 'primaryTransparent'
+                    | 'secondaryTransparent'
+                    | 'tertiaryTransparent'
+                    | 'transparentPrimary'
+                    | 'transparentSecondary'
+                    | 'transparentTertiary'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+              rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
+              className?: string | null;
+              type?: ('submit' | 'button' | 'reset') | null;
+              link?: string | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'ButtonBlock';
+            }[]
+          | null;
+        image: {
+          src: string;
+          alt: string;
+        };
+        bgColor?:
+          | (
+              | 'white'
+              | 'secondary'
+              | 'secondaryOpac'
+              | 'primary'
+              | 'primaryOpac'
+              | 'tertiary'
+              | 'tertiaryOpac'
+              | 'whiteOpac'
+              | 'blackTransparent'
+              | 'transparentBlack'
+              | 'primaryTransparent'
+              | 'secondaryTransparent'
+              | 'tertiaryTransparent'
+              | 'transparentPrimary'
+              | 'transparentSecondary'
+              | 'transparentTertiary'
+              | 'primarySecondaryOpac'
+              | 'primaryTertiaryOpac'
+              | 'secondaryTertiaryOpac'
+              | 'secondaryPrimaryOpac'
+              | 'tertiaryPrimaryOpac'
+              | 'tertiarySecondaryOpac'
+              | 'primarySecondaryTertiaryOpac'
+              | 'primaryTertiarySecondaryOpac'
+              | 'secondaryPrimaryTertiaryOpac'
+              | 'secondaryTertiryPrimaryOpac'
+              | 'tertiaryPrimarySecondaryOpac'
+              | 'tertiarySecondaryPrimaryOpac'
+              | 'primarySecondary'
+              | 'primaryTertiary'
+              | 'secondaryTertiary'
+              | 'secondaryPrimary'
+              | 'tertiaryPrimary'
+              | 'tertiarySecondary'
+              | 'primarySecondaryTertiary'
+              | 'primaryTertiarySecondary'
+              | 'secondaryPrimaryTertiary'
+              | 'secondaryTertiryPrimary'
+              | 'tertiaryPrimarySecondary'
+              | 'tertiarySecondaryPrimary'
+            )
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'HeroBubbleSection';
+      }
+    | {
+        texts?:
+          | {
+              level?:
+                | (
+                    | 'h1'
+                    | 'h2'
+                    | 'h3'
+                    | 'h4'
+                    | 'h5'
+                    | 'label1'
+                    | 'label2'
+                    | 'label3'
+                    | 'label4'
+                    | 'label5'
+                    | 'label6'
+                    | 'label7'
+                    | 'label8'
+                    | 'paragraph1'
+                    | 'paragraph2'
+                    | 'paragraph3'
+                    | 'paragraph4'
+                    | 'paragraph5'
+                  )
+                | null;
+              color:
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'black'
+                | 'white'
+                | 'textLight'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary';
+              text: string;
+              className?: string | null;
+              fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TextBlock';
+            }[]
+          | null;
+        buttons?:
+          | {
+              text: string;
+              textColor?:
+                | (
+                    | 'secondary'
+                    | 'primary'
+                    | 'tertiary'
+                    | 'black'
+                    | 'white'
+                    | 'textLight'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              bgColor?:
+                | (
+                    | 'white'
+                    | 'secondary'
+                    | 'secondaryOpac'
+                    | 'primary'
+                    | 'primaryOpac'
+                    | 'tertiary'
+                    | 'tertiaryOpac'
+                    | 'whiteOpac'
+                    | 'blackTransparent'
+                    | 'transparentBlack'
+                    | 'primaryTransparent'
+                    | 'secondaryTransparent'
+                    | 'tertiaryTransparent'
+                    | 'transparentPrimary'
+                    | 'transparentSecondary'
+                    | 'transparentTertiary'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+              rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
+              className?: string | null;
+              type?: ('submit' | 'button' | 'reset') | null;
+              link?: string | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'ButtonBlock';
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'TextSection';
+      }
+    | {
+        texts?:
+          | {
+              level?:
+                | (
+                    | 'h1'
+                    | 'h2'
+                    | 'h3'
+                    | 'h4'
+                    | 'h5'
+                    | 'label1'
+                    | 'label2'
+                    | 'label3'
+                    | 'label4'
+                    | 'label5'
+                    | 'label6'
+                    | 'label7'
+                    | 'label8'
+                    | 'paragraph1'
+                    | 'paragraph2'
+                    | 'paragraph3'
+                    | 'paragraph4'
+                    | 'paragraph5'
+                  )
+                | null;
+              color:
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'black'
+                | 'white'
+                | 'textLight'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary';
+              text: string;
+              className?: string | null;
+              fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TextBlock';
+            }[]
+          | null;
+        for: {
+          texts?:
+            | {
+                level?:
+                  | (
+                      | 'h1'
+                      | 'h2'
+                      | 'h3'
+                      | 'h4'
+                      | 'h5'
+                      | 'label1'
+                      | 'label2'
+                      | 'label3'
+                      | 'label4'
+                      | 'label5'
+                      | 'label6'
+                      | 'label7'
+                      | 'label8'
+                      | 'paragraph1'
+                      | 'paragraph2'
+                      | 'paragraph3'
+                      | 'paragraph4'
+                      | 'paragraph5'
+                    )
+                  | null;
+                color:
+                  | 'secondary'
+                  | 'primary'
+                  | 'tertiary'
+                  | 'black'
+                  | 'white'
+                  | 'textLight'
+                  | 'primarySecondaryOpac'
+                  | 'primaryTertiaryOpac'
+                  | 'secondaryTertiaryOpac'
+                  | 'secondaryPrimaryOpac'
+                  | 'tertiaryPrimaryOpac'
+                  | 'tertiarySecondaryOpac'
+                  | 'primarySecondaryTertiaryOpac'
+                  | 'primaryTertiarySecondaryOpac'
+                  | 'secondaryPrimaryTertiaryOpac'
+                  | 'secondaryTertiryPrimaryOpac'
+                  | 'tertiaryPrimarySecondaryOpac'
+                  | 'tertiarySecondaryPrimaryOpac'
+                  | 'primarySecondary'
+                  | 'primaryTertiary'
+                  | 'secondaryTertiary'
+                  | 'secondaryPrimary'
+                  | 'tertiaryPrimary'
+                  | 'tertiarySecondary'
+                  | 'primarySecondaryTertiary'
+                  | 'primaryTertiarySecondary'
+                  | 'secondaryPrimaryTertiary'
+                  | 'secondaryTertiryPrimary'
+                  | 'tertiaryPrimarySecondary'
+                  | 'tertiarySecondaryPrimary';
+                text: string;
+                className?: string | null;
+                fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                id?: string | null;
+                blockName?: string | null;
+                blockType: 'TextBlock';
+              }[]
+            | null;
+          points?:
+            | {
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+          overlay?: {
+            overlayColor?:
+              | (
+                  | 'white'
+                  | 'secondary'
+                  | 'secondaryOpac'
+                  | 'primary'
+                  | 'primaryOpac'
+                  | 'tertiary'
+                  | 'tertiaryOpac'
+                  | 'whiteOpac'
+                  | 'blackTransparent'
+                  | 'transparentBlack'
+                  | 'primaryTransparent'
+                  | 'secondaryTransparent'
+                  | 'tertiaryTransparent'
+                  | 'transparentPrimary'
+                  | 'transparentSecondary'
+                  | 'transparentTertiary'
+                  | 'primarySecondaryOpac'
+                  | 'primaryTertiaryOpac'
+                  | 'secondaryTertiaryOpac'
+                  | 'secondaryPrimaryOpac'
+                  | 'tertiaryPrimaryOpac'
+                  | 'tertiarySecondaryOpac'
+                  | 'primarySecondaryTertiaryOpac'
+                  | 'primaryTertiarySecondaryOpac'
+                  | 'secondaryPrimaryTertiaryOpac'
+                  | 'secondaryTertiryPrimaryOpac'
+                  | 'tertiaryPrimarySecondaryOpac'
+                  | 'tertiarySecondaryPrimaryOpac'
+                  | 'primarySecondary'
+                  | 'primaryTertiary'
+                  | 'secondaryTertiary'
+                  | 'secondaryPrimary'
+                  | 'tertiaryPrimary'
+                  | 'tertiarySecondary'
+                  | 'primarySecondaryTertiary'
+                  | 'primaryTertiarySecondary'
+                  | 'secondaryPrimaryTertiary'
+                  | 'secondaryTertiryPrimary'
+                  | 'tertiaryPrimarySecondary'
+                  | 'tertiarySecondaryPrimary'
+                )
+              | null;
+            image?: string | null;
+          };
+        };
+        against: {
+          texts?:
+            | {
+                level?:
+                  | (
+                      | 'h1'
+                      | 'h2'
+                      | 'h3'
+                      | 'h4'
+                      | 'h5'
+                      | 'label1'
+                      | 'label2'
+                      | 'label3'
+                      | 'label4'
+                      | 'label5'
+                      | 'label6'
+                      | 'label7'
+                      | 'label8'
+                      | 'paragraph1'
+                      | 'paragraph2'
+                      | 'paragraph3'
+                      | 'paragraph4'
+                      | 'paragraph5'
+                    )
+                  | null;
+                color:
+                  | 'secondary'
+                  | 'primary'
+                  | 'tertiary'
+                  | 'black'
+                  | 'white'
+                  | 'textLight'
+                  | 'primarySecondaryOpac'
+                  | 'primaryTertiaryOpac'
+                  | 'secondaryTertiaryOpac'
+                  | 'secondaryPrimaryOpac'
+                  | 'tertiaryPrimaryOpac'
+                  | 'tertiarySecondaryOpac'
+                  | 'primarySecondaryTertiaryOpac'
+                  | 'primaryTertiarySecondaryOpac'
+                  | 'secondaryPrimaryTertiaryOpac'
+                  | 'secondaryTertiryPrimaryOpac'
+                  | 'tertiaryPrimarySecondaryOpac'
+                  | 'tertiarySecondaryPrimaryOpac'
+                  | 'primarySecondary'
+                  | 'primaryTertiary'
+                  | 'secondaryTertiary'
+                  | 'secondaryPrimary'
+                  | 'tertiaryPrimary'
+                  | 'tertiarySecondary'
+                  | 'primarySecondaryTertiary'
+                  | 'primaryTertiarySecondary'
+                  | 'secondaryPrimaryTertiary'
+                  | 'secondaryTertiryPrimary'
+                  | 'tertiaryPrimarySecondary'
+                  | 'tertiarySecondaryPrimary';
+                text: string;
+                className?: string | null;
+                fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                id?: string | null;
+                blockName?: string | null;
+                blockType: 'TextBlock';
+              }[]
+            | null;
+          points?:
+            | {
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+          overlay?: {
+            overlayColor?:
+              | (
+                  | 'white'
+                  | 'secondary'
+                  | 'secondaryOpac'
+                  | 'primary'
+                  | 'primaryOpac'
+                  | 'tertiary'
+                  | 'tertiaryOpac'
+                  | 'whiteOpac'
+                  | 'blackTransparent'
+                  | 'transparentBlack'
+                  | 'primaryTransparent'
+                  | 'secondaryTransparent'
+                  | 'tertiaryTransparent'
+                  | 'transparentPrimary'
+                  | 'transparentSecondary'
+                  | 'transparentTertiary'
+                  | 'primarySecondaryOpac'
+                  | 'primaryTertiaryOpac'
+                  | 'secondaryTertiaryOpac'
+                  | 'secondaryPrimaryOpac'
+                  | 'tertiaryPrimaryOpac'
+                  | 'tertiarySecondaryOpac'
+                  | 'primarySecondaryTertiaryOpac'
+                  | 'primaryTertiarySecondaryOpac'
+                  | 'secondaryPrimaryTertiaryOpac'
+                  | 'secondaryTertiryPrimaryOpac'
+                  | 'tertiaryPrimarySecondaryOpac'
+                  | 'tertiarySecondaryPrimaryOpac'
+                  | 'primarySecondary'
+                  | 'primaryTertiary'
+                  | 'secondaryTertiary'
+                  | 'secondaryPrimary'
+                  | 'tertiaryPrimary'
+                  | 'tertiarySecondary'
+                  | 'primarySecondaryTertiary'
+                  | 'primaryTertiarySecondary'
+                  | 'secondaryPrimaryTertiary'
+                  | 'secondaryTertiryPrimary'
+                  | 'tertiaryPrimarySecondary'
+                  | 'tertiarySecondaryPrimary'
+                )
+              | null;
+            image?: string | null;
+          };
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'ComparisonSection';
+      }
+    | {
+        texts?:
+          | {
+              level?:
+                | (
+                    | 'h1'
+                    | 'h2'
+                    | 'h3'
+                    | 'h4'
+                    | 'h5'
+                    | 'label1'
+                    | 'label2'
+                    | 'label3'
+                    | 'label4'
+                    | 'label5'
+                    | 'label6'
+                    | 'label7'
+                    | 'label8'
+                    | 'paragraph1'
+                    | 'paragraph2'
+                    | 'paragraph3'
+                    | 'paragraph4'
+                    | 'paragraph5'
+                  )
+                | null;
+              color:
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'black'
+                | 'white'
+                | 'textLight'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary';
+              text: string;
+              className?: string | null;
+              fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TextBlock';
+            }[]
+          | null;
+        overlay?: {
+          overlayColor?:
+            | (
+                | 'white'
+                | 'secondary'
+                | 'secondaryOpac'
+                | 'primary'
+                | 'primaryOpac'
+                | 'tertiary'
+                | 'tertiaryOpac'
+                | 'whiteOpac'
+                | 'blackTransparent'
+                | 'transparentBlack'
+                | 'primaryTransparent'
+                | 'secondaryTransparent'
+                | 'tertiaryTransparent'
+                | 'transparentPrimary'
+                | 'transparentSecondary'
+                | 'transparentTertiary'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary'
+              )
+            | null;
+          image?: string | null;
+        };
+        button: {
+          text: string;
+          textColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white' | 'textLight') | null;
           bgColor?:
             | (
                 | 'white'
@@ -445,79 +1352,693 @@ export interface Page {
           className?: string | null;
           type?: ('submit' | 'button' | 'reset') | null;
           link?: string | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'ButtonBlock';
-        }[]
-      | null;
-    widgets?:
-      | {
-          label: string;
-          placeholder: string;
-          webhook: string;
-          button: {
-            text: string;
-            textColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white' | 'textLight') | null;
-            bgColor?:
-              | (
-                  | 'white'
-                  | 'secondary'
-                  | 'secondaryOpac'
-                  | 'primary'
-                  | 'primaryOpac'
-                  | 'tertiary'
-                  | 'tertiaryOpac'
-                  | 'whiteOpac'
-                  | 'blackTransparent'
-                  | 'transparentBlack'
-                  | 'primaryTransparent'
-                  | 'secondaryTransparent'
-                  | 'tertiaryTransparent'
-                  | 'transparentPrimary'
-                  | 'transparentSecondary'
-                  | 'transparentTertiary'
-                  | 'primarySecondaryOpac'
-                  | 'primaryTertiaryOpac'
-                  | 'secondaryTertiaryOpac'
-                  | 'secondaryPrimaryOpac'
-                  | 'tertiaryPrimaryOpac'
-                  | 'tertiarySecondaryOpac'
-                  | 'primarySecondaryTertiaryOpac'
-                  | 'primaryTertiarySecondaryOpac'
-                  | 'secondaryPrimaryTertiaryOpac'
-                  | 'secondaryTertiryPrimaryOpac'
-                  | 'tertiaryPrimarySecondaryOpac'
-                  | 'tertiarySecondaryPrimaryOpac'
-                  | 'primarySecondary'
-                  | 'primaryTertiary'
-                  | 'secondaryTertiary'
-                  | 'secondaryPrimary'
-                  | 'tertiaryPrimary'
-                  | 'tertiarySecondary'
-                  | 'primarySecondaryTertiary'
-                  | 'primaryTertiarySecondary'
-                  | 'secondaryPrimaryTertiary'
-                  | 'secondaryTertiryPrimary'
-                  | 'tertiaryPrimarySecondary'
-                  | 'tertiarySecondaryPrimary'
-                )
-              | null;
-            size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
-            rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
-            className?: string | null;
-            type?: ('submit' | 'button' | 'reset') | null;
-            link?: string | null;
-          };
-          successText?: string | null;
-          id?: string | null;
-          blockName?: string | null;
-          blockType: 'inputWidget';
-        }[]
-      | null;
-    id?: string | null;
-    blockName?: string | null;
-    blockType: 'BannerSection';
-  }[];
+        };
+        webhook: string;
+        fields: (
+          | {
+              label: string;
+              placeholder: string;
+              spanTwo?: ('true' | 'false') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'formtextinput';
+            }
+          | {
+              label: string;
+              placeholder: string;
+              spanTwo?: ('true' | 'false') | null;
+              options: {
+                text: string;
+                value: string;
+                id?: string | null;
+                blockName?: string | null;
+                blockType: 'formselectoptions';
+              }[];
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'formselectinput';
+            }
+          | {
+              label: string;
+              value: string;
+              spanTwo?: ('true' | 'false') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'formcheckboxinput';
+            }
+        )[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'FormSection';
+      }
+    | {
+        texts?:
+          | {
+              level?:
+                | (
+                    | 'h1'
+                    | 'h2'
+                    | 'h3'
+                    | 'h4'
+                    | 'h5'
+                    | 'label1'
+                    | 'label2'
+                    | 'label3'
+                    | 'label4'
+                    | 'label5'
+                    | 'label6'
+                    | 'label7'
+                    | 'label8'
+                    | 'paragraph1'
+                    | 'paragraph2'
+                    | 'paragraph3'
+                    | 'paragraph4'
+                    | 'paragraph5'
+                  )
+                | null;
+              color:
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'black'
+                | 'white'
+                | 'textLight'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary';
+              text: string;
+              className?: string | null;
+              fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TextBlock';
+            }[]
+          | null;
+        imagePart?:
+          | (
+              | {
+                  image: {
+                    src: string;
+                    alt: string;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'imageOne';
+                }
+              | {
+                  imageOne: {
+                    src: string;
+                    alt: string;
+                  };
+                  imageTwo: {
+                    src: string;
+                    alt: string;
+                  };
+                  imageThree: {
+                    src: string;
+                    alt: string;
+                  };
+                  imageFour: {
+                    src: string;
+                    alt: string;
+                  };
+                  rotate?: ('true' | 'false') | null;
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'imageGrid';
+                }
+            )[]
+          | null;
+        buttons?:
+          | {
+              text: string;
+              textColor?:
+                | (
+                    | 'secondary'
+                    | 'primary'
+                    | 'tertiary'
+                    | 'black'
+                    | 'white'
+                    | 'textLight'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              bgColor?:
+                | (
+                    | 'white'
+                    | 'secondary'
+                    | 'secondaryOpac'
+                    | 'primary'
+                    | 'primaryOpac'
+                    | 'tertiary'
+                    | 'tertiaryOpac'
+                    | 'whiteOpac'
+                    | 'blackTransparent'
+                    | 'transparentBlack'
+                    | 'primaryTransparent'
+                    | 'secondaryTransparent'
+                    | 'tertiaryTransparent'
+                    | 'transparentPrimary'
+                    | 'transparentSecondary'
+                    | 'transparentTertiary'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+              rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
+              className?: string | null;
+              type?: ('submit' | 'button' | 'reset') | null;
+              link?: string | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'ButtonBlock';
+            }[]
+          | null;
+        textSide?: ('left' | 'right') | null;
+        overlay?: {
+          overlayColor?:
+            | (
+                | 'white'
+                | 'secondary'
+                | 'secondaryOpac'
+                | 'primary'
+                | 'primaryOpac'
+                | 'tertiary'
+                | 'tertiaryOpac'
+                | 'whiteOpac'
+                | 'blackTransparent'
+                | 'transparentBlack'
+                | 'primaryTransparent'
+                | 'secondaryTransparent'
+                | 'tertiaryTransparent'
+                | 'transparentPrimary'
+                | 'transparentSecondary'
+                | 'transparentTertiary'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary'
+              )
+            | null;
+          image?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'ImageTextSection';
+      }
+    | {
+        textsTop?:
+          | {
+              level?:
+                | (
+                    | 'h1'
+                    | 'h2'
+                    | 'h3'
+                    | 'h4'
+                    | 'h5'
+                    | 'label1'
+                    | 'label2'
+                    | 'label3'
+                    | 'label4'
+                    | 'label5'
+                    | 'label6'
+                    | 'label7'
+                    | 'label8'
+                    | 'paragraph1'
+                    | 'paragraph2'
+                    | 'paragraph3'
+                    | 'paragraph4'
+                    | 'paragraph5'
+                  )
+                | null;
+              color:
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'black'
+                | 'white'
+                | 'textLight'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary';
+              text: string;
+              className?: string | null;
+              fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TextBlock';
+            }[]
+          | null;
+        textsBottom?:
+          | {
+              level?:
+                | (
+                    | 'h1'
+                    | 'h2'
+                    | 'h3'
+                    | 'h4'
+                    | 'h5'
+                    | 'label1'
+                    | 'label2'
+                    | 'label3'
+                    | 'label4'
+                    | 'label5'
+                    | 'label6'
+                    | 'label7'
+                    | 'label8'
+                    | 'paragraph1'
+                    | 'paragraph2'
+                    | 'paragraph3'
+                    | 'paragraph4'
+                    | 'paragraph5'
+                  )
+                | null;
+              color:
+                | 'secondary'
+                | 'primary'
+                | 'tertiary'
+                | 'black'
+                | 'white'
+                | 'textLight'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary';
+              text: string;
+              className?: string | null;
+              fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'TextBlock';
+            }[]
+          | null;
+        bubbles: (
+          | {
+              texts?:
+                | {
+                    level?:
+                      | (
+                          | 'h1'
+                          | 'h2'
+                          | 'h3'
+                          | 'h4'
+                          | 'h5'
+                          | 'label1'
+                          | 'label2'
+                          | 'label3'
+                          | 'label4'
+                          | 'label5'
+                          | 'label6'
+                          | 'label7'
+                          | 'label8'
+                          | 'paragraph1'
+                          | 'paragraph2'
+                          | 'paragraph3'
+                          | 'paragraph4'
+                          | 'paragraph5'
+                        )
+                      | null;
+                    color:
+                      | 'secondary'
+                      | 'primary'
+                      | 'tertiary'
+                      | 'black'
+                      | 'white'
+                      | 'textLight'
+                      | 'primarySecondaryOpac'
+                      | 'primaryTertiaryOpac'
+                      | 'secondaryTertiaryOpac'
+                      | 'secondaryPrimaryOpac'
+                      | 'tertiaryPrimaryOpac'
+                      | 'tertiarySecondaryOpac'
+                      | 'primarySecondaryTertiaryOpac'
+                      | 'primaryTertiarySecondaryOpac'
+                      | 'secondaryPrimaryTertiaryOpac'
+                      | 'secondaryTertiryPrimaryOpac'
+                      | 'tertiaryPrimarySecondaryOpac'
+                      | 'tertiarySecondaryPrimaryOpac'
+                      | 'primarySecondary'
+                      | 'primaryTertiary'
+                      | 'secondaryTertiary'
+                      | 'secondaryPrimary'
+                      | 'tertiaryPrimary'
+                      | 'tertiarySecondary'
+                      | 'primarySecondaryTertiary'
+                      | 'primaryTertiarySecondary'
+                      | 'secondaryPrimaryTertiary'
+                      | 'secondaryTertiryPrimary'
+                      | 'tertiaryPrimarySecondary'
+                      | 'tertiarySecondaryPrimary';
+                    text: string;
+                    className?: string | null;
+                    fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
+                    id?: string | null;
+                    blockName?: string | null;
+                    blockType: 'TextBlock';
+                  }[]
+                | null;
+              bgColor?:
+                | (
+                    | 'white'
+                    | 'secondary'
+                    | 'secondaryOpac'
+                    | 'primary'
+                    | 'primaryOpac'
+                    | 'tertiary'
+                    | 'tertiaryOpac'
+                    | 'whiteOpac'
+                    | 'blackTransparent'
+                    | 'transparentBlack'
+                    | 'primaryTransparent'
+                    | 'secondaryTransparent'
+                    | 'tertiaryTransparent'
+                    | 'transparentPrimary'
+                    | 'transparentSecondary'
+                    | 'transparentTertiary'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              column: {
+                start: number;
+                end: number;
+              };
+              row: {
+                start: number;
+                end: number;
+              };
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'masonrybubble';
+            }
+          | {
+              image: string;
+              column: {
+                start: number;
+                end: number;
+              };
+              row: {
+                start: number;
+                end: number;
+              };
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'masonrybubbleimage';
+            }
+        )[];
+        overlay?: {
+          overlayColor?:
+            | (
+                | 'white'
+                | 'secondary'
+                | 'secondaryOpac'
+                | 'primary'
+                | 'primaryOpac'
+                | 'tertiary'
+                | 'tertiaryOpac'
+                | 'whiteOpac'
+                | 'blackTransparent'
+                | 'transparentBlack'
+                | 'primaryTransparent'
+                | 'secondaryTransparent'
+                | 'tertiaryTransparent'
+                | 'transparentPrimary'
+                | 'transparentSecondary'
+                | 'transparentTertiary'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary'
+              )
+            | null;
+          image?: string | null;
+        };
+        buttons?:
+          | {
+              text: string;
+              textColor?:
+                | (
+                    | 'secondary'
+                    | 'primary'
+                    | 'tertiary'
+                    | 'black'
+                    | 'white'
+                    | 'textLight'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              bgColor?:
+                | (
+                    | 'white'
+                    | 'secondary'
+                    | 'secondaryOpac'
+                    | 'primary'
+                    | 'primaryOpac'
+                    | 'tertiary'
+                    | 'tertiaryOpac'
+                    | 'whiteOpac'
+                    | 'blackTransparent'
+                    | 'transparentBlack'
+                    | 'primaryTransparent'
+                    | 'secondaryTransparent'
+                    | 'tertiaryTransparent'
+                    | 'transparentPrimary'
+                    | 'transparentSecondary'
+                    | 'transparentTertiary'
+                    | 'primarySecondaryOpac'
+                    | 'primaryTertiaryOpac'
+                    | 'secondaryTertiaryOpac'
+                    | 'secondaryPrimaryOpac'
+                    | 'tertiaryPrimaryOpac'
+                    | 'tertiarySecondaryOpac'
+                    | 'primarySecondaryTertiaryOpac'
+                    | 'primaryTertiarySecondaryOpac'
+                    | 'secondaryPrimaryTertiaryOpac'
+                    | 'secondaryTertiryPrimaryOpac'
+                    | 'tertiaryPrimarySecondaryOpac'
+                    | 'tertiarySecondaryPrimaryOpac'
+                    | 'primarySecondary'
+                    | 'primaryTertiary'
+                    | 'secondaryTertiary'
+                    | 'secondaryPrimary'
+                    | 'tertiaryPrimary'
+                    | 'tertiarySecondary'
+                    | 'primarySecondaryTertiary'
+                    | 'primaryTertiarySecondary'
+                    | 'secondaryPrimaryTertiary'
+                    | 'secondaryTertiryPrimary'
+                    | 'tertiaryPrimarySecondary'
+                    | 'tertiarySecondaryPrimary'
+                  )
+                | null;
+              size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+              rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
+              className?: string | null;
+              type?: ('submit' | 'button' | 'reset') | null;
+              link?: string | null;
+              id?: string | null;
+              blockName?: string | null;
+              blockType: 'ButtonBlock';
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'MasonrySection';
+      }
+  )[];
   updatedAt: string;
   createdAt: string;
 }
@@ -754,6 +2275,467 @@ export interface PagesSelect<T extends boolean = true> {
                                 link?: T;
                               };
                           successText?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        HeroBubbleSection?:
+          | T
+          | {
+              texts?:
+                | T
+                | {
+                    TextBlock?:
+                      | T
+                      | {
+                          level?: T;
+                          color?: T;
+                          text?: T;
+                          className?: T;
+                          fontWeight?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              buttons?:
+                | T
+                | {
+                    ButtonBlock?:
+                      | T
+                      | {
+                          text?: T;
+                          textColor?: T;
+                          bgColor?: T;
+                          size?: T;
+                          rounding?: T;
+                          className?: T;
+                          type?: T;
+                          link?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              image?:
+                | T
+                | {
+                    src?: T;
+                    alt?: T;
+                  };
+              bgColor?: T;
+              id?: T;
+              blockName?: T;
+            };
+        TextSection?:
+          | T
+          | {
+              texts?:
+                | T
+                | {
+                    TextBlock?:
+                      | T
+                      | {
+                          level?: T;
+                          color?: T;
+                          text?: T;
+                          className?: T;
+                          fontWeight?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              buttons?:
+                | T
+                | {
+                    ButtonBlock?:
+                      | T
+                      | {
+                          text?: T;
+                          textColor?: T;
+                          bgColor?: T;
+                          size?: T;
+                          rounding?: T;
+                          className?: T;
+                          type?: T;
+                          link?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        ComparisonSection?:
+          | T
+          | {
+              texts?:
+                | T
+                | {
+                    TextBlock?:
+                      | T
+                      | {
+                          level?: T;
+                          color?: T;
+                          text?: T;
+                          className?: T;
+                          fontWeight?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              for?:
+                | T
+                | {
+                    texts?:
+                      | T
+                      | {
+                          TextBlock?:
+                            | T
+                            | {
+                                level?: T;
+                                color?: T;
+                                text?: T;
+                                className?: T;
+                                fontWeight?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                        };
+                    points?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                    overlay?:
+                      | T
+                      | {
+                          overlayColor?: T;
+                          image?: T;
+                        };
+                  };
+              against?:
+                | T
+                | {
+                    texts?:
+                      | T
+                      | {
+                          TextBlock?:
+                            | T
+                            | {
+                                level?: T;
+                                color?: T;
+                                text?: T;
+                                className?: T;
+                                fontWeight?: T;
+                                id?: T;
+                                blockName?: T;
+                              };
+                        };
+                    points?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                    overlay?:
+                      | T
+                      | {
+                          overlayColor?: T;
+                          image?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        FormSection?:
+          | T
+          | {
+              texts?:
+                | T
+                | {
+                    TextBlock?:
+                      | T
+                      | {
+                          level?: T;
+                          color?: T;
+                          text?: T;
+                          className?: T;
+                          fontWeight?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              overlay?:
+                | T
+                | {
+                    overlayColor?: T;
+                    image?: T;
+                  };
+              button?:
+                | T
+                | {
+                    text?: T;
+                    textColor?: T;
+                    bgColor?: T;
+                    size?: T;
+                    rounding?: T;
+                    className?: T;
+                    type?: T;
+                    link?: T;
+                  };
+              webhook?: T;
+              fields?:
+                | T
+                | {
+                    formtextinput?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                          spanTwo?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    formselectinput?:
+                      | T
+                      | {
+                          label?: T;
+                          placeholder?: T;
+                          spanTwo?: T;
+                          options?:
+                            | T
+                            | {
+                                formselectoptions?:
+                                  | T
+                                  | {
+                                      text?: T;
+                                      value?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    formcheckboxinput?:
+                      | T
+                      | {
+                          label?: T;
+                          value?: T;
+                          spanTwo?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        ImageTextSection?:
+          | T
+          | {
+              texts?:
+                | T
+                | {
+                    TextBlock?:
+                      | T
+                      | {
+                          level?: T;
+                          color?: T;
+                          text?: T;
+                          className?: T;
+                          fontWeight?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              imagePart?:
+                | T
+                | {
+                    imageOne?:
+                      | T
+                      | {
+                          image?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    imageGrid?:
+                      | T
+                      | {
+                          imageOne?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                              };
+                          imageTwo?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                              };
+                          imageThree?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                              };
+                          imageFour?:
+                            | T
+                            | {
+                                src?: T;
+                                alt?: T;
+                              };
+                          rotate?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              buttons?:
+                | T
+                | {
+                    ButtonBlock?:
+                      | T
+                      | {
+                          text?: T;
+                          textColor?: T;
+                          bgColor?: T;
+                          size?: T;
+                          rounding?: T;
+                          className?: T;
+                          type?: T;
+                          link?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              textSide?: T;
+              overlay?:
+                | T
+                | {
+                    overlayColor?: T;
+                    image?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        MasonrySection?:
+          | T
+          | {
+              textsTop?:
+                | T
+                | {
+                    TextBlock?:
+                      | T
+                      | {
+                          level?: T;
+                          color?: T;
+                          text?: T;
+                          className?: T;
+                          fontWeight?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              textsBottom?:
+                | T
+                | {
+                    TextBlock?:
+                      | T
+                      | {
+                          level?: T;
+                          color?: T;
+                          text?: T;
+                          className?: T;
+                          fontWeight?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              bubbles?:
+                | T
+                | {
+                    masonrybubble?:
+                      | T
+                      | {
+                          texts?:
+                            | T
+                            | {
+                                TextBlock?:
+                                  | T
+                                  | {
+                                      level?: T;
+                                      color?: T;
+                                      text?: T;
+                                      className?: T;
+                                      fontWeight?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
+                          bgColor?: T;
+                          column?:
+                            | T
+                            | {
+                                start?: T;
+                                end?: T;
+                              };
+                          row?:
+                            | T
+                            | {
+                                start?: T;
+                                end?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    masonrybubbleimage?:
+                      | T
+                      | {
+                          image?: T;
+                          column?:
+                            | T
+                            | {
+                                start?: T;
+                                end?: T;
+                              };
+                          row?:
+                            | T
+                            | {
+                                start?: T;
+                                end?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              overlay?:
+                | T
+                | {
+                    overlayColor?: T;
+                    image?: T;
+                  };
+              buttons?:
+                | T
+                | {
+                    ButtonBlock?:
+                      | T
+                      | {
+                          text?: T;
+                          textColor?: T;
+                          bgColor?: T;
+                          size?: T;
+                          rounding?: T;
+                          className?: T;
+                          type?: T;
+                          link?: T;
                           id?: T;
                           blockName?: T;
                         };

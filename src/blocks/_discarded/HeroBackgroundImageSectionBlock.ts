@@ -1,5 +1,5 @@
 import { Block } from 'payload'
-import { headingField } from '../global/fields'
+import { headingField } from '../_global/fields'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { colorsAndGradients, textColor } from '@/design/colors'
 

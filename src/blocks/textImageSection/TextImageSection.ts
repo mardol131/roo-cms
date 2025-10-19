@@ -1,5 +1,5 @@
 import { Block } from 'payload'
-import { getRichTextField, overlayField } from '../global/fields'
+import { getRichTextField, overlayField } from '../_global/fields'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { sides } from '@/design/orientation'
 

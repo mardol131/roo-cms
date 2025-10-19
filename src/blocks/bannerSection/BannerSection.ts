@@ -1,7 +1,7 @@
 import { Block } from 'payload'
-import { buttonsField, overlayField } from '../global/fields'
-import { TextBlock } from '../globalBlocks/textBlock'
-import { widgetsField } from '../globalBlocks/widgetsBlocks'
+import { buttonsField, overlayField } from '../_global/fields'
+import { TextBlock } from '../_blocks/textBlock'
+import { widgetsField } from '../_blocks/widgetsBlocks'
 
 export const BannerSectionBlock: Block = {
   slug: 'BannerSection',

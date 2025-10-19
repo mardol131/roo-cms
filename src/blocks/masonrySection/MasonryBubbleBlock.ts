@@ -1,13 +1,14 @@
 import { Block } from 'payload'
-import { columnField, getRichTextField, rowField } from '../global/fields'
+import { columnField, getRichTextField, rowField } from '../_global/fields'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { colorsAndGradients } from '@/design/colors'
+import { textsField } from '../_blocks/textBlock'
 
 export const MasonryBubbleBlock: Block = {
   slug: 'masonrybubble',
   fields: [
-    getRichTextField(),
-    { name: 'color', type: 'select', options: getOptionsFromObject(colorsAndGradients) },
+    textsField,
+    { name: 'bgColor', type: 'select', options: getOptionsFromObject(colorsAndGradients) },
     columnField,
     rowField,
   ],
