@@ -248,366 +248,128 @@ export interface Page {
   } | null;
   title: string;
   pageSlug?: string | null;
-  sections: (
-    | {
-        heading: {
-          headingOne: string;
-          headingTwo?: string | null;
-          size?: ('sm' | 'md' | 'lg' | 'xl') | null;
-          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-          align?: ('start' | 'center' | 'end') | null;
-          level?: ('h1' | 'h2' | 'h3') | null;
-          weight?: number | null;
-        };
-        text: {
+  sections: {
+    texts?:
+      | {
+          level?:
+            | (
+                | 'h1'
+                | 'h2'
+                | 'h3'
+                | 'h4'
+                | 'h5'
+                | 'label1'
+                | 'label2'
+                | 'label3'
+                | 'label4'
+                | 'label5'
+                | 'label6'
+                | 'label7'
+                | 'label8'
+                | 'paragraph1'
+                | 'paragraph2'
+                | 'paragraph3'
+                | 'paragraph4'
+                | 'paragraph5'
+              )
+            | null;
+          color:
+            | 'secondary'
+            | 'primary'
+            | 'tertiary'
+            | 'black'
+            | 'white'
+            | 'textLight'
+            | 'primarySecondaryOpac'
+            | 'primaryTertiaryOpac'
+            | 'secondaryTertiaryOpac'
+            | 'secondaryPrimaryOpac'
+            | 'tertiaryPrimaryOpac'
+            | 'tertiarySecondaryOpac'
+            | 'primarySecondaryTertiaryOpac'
+            | 'primaryTertiarySecondaryOpac'
+            | 'secondaryPrimaryTertiaryOpac'
+            | 'secondaryTertiryPrimaryOpac'
+            | 'tertiaryPrimarySecondaryOpac'
+            | 'tertiarySecondaryPrimaryOpac'
+            | 'primarySecondary'
+            | 'primaryTertiary'
+            | 'secondaryTertiary'
+            | 'secondaryPrimary'
+            | 'tertiaryPrimary'
+            | 'tertiarySecondary'
+            | 'primarySecondaryTertiary'
+            | 'primaryTertiarySecondary'
+            | 'secondaryPrimaryTertiary'
+            | 'secondaryTertiryPrimary'
+            | 'tertiaryPrimarySecondary'
+            | 'tertiarySecondaryPrimary';
           text: string;
-          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-        };
-        buttonText: string;
-        buttonUrl: string;
-        image: string;
-        bgColor?:
-          | (
-              | 'secondary'
-              | 'primary'
-              | 'tertiary'
-              | 'primarySecondaryOpac'
-              | 'primaryTertiaryOpac'
-              | 'secondaryTertiaryOpac'
-              | 'secondaryPrimaryOpac'
-              | 'tertiaryPrimaryOpac'
-              | 'tertiarySecondaryOpac'
-              | 'primarySecondaryTertiaryOpac'
-              | 'primaryTertiarySecondaryOpac'
-              | 'secondaryPrimaryTertiaryOpac'
-              | 'secondaryTertiryPrimaryOpac'
-              | 'tertiaryPrimarySecondaryOpac'
-              | 'tertiarySecondaryPrimaryOpac'
-              | 'primarySecondary'
-              | 'primaryTertiary'
-              | 'secondaryTertiary'
-              | 'secondaryPrimary'
-              | 'tertiaryPrimary'
-              | 'tertiarySecondary'
-              | 'primarySecondaryTertiary'
-              | 'primaryTertiarySecondary'
-              | 'secondaryPrimaryTertiary'
-              | 'secondaryTertiryPrimary'
-              | 'tertiaryPrimarySecondary'
-              | 'tertiarySecondaryPrimary'
-            )
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'herobackgroundimage';
-      }
-    | {
-        text: {
-          richText: {
-            root: {
-              type: string;
-              children: {
-                type: string;
-                version: number;
-                [k: string]: unknown;
-              }[];
-              direction: ('ltr' | 'rtl') | null;
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-              indent: number;
-              version: number;
-            };
-            [k: string]: unknown;
-          };
-          richTextColors?: {
-            h1?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-            h2?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-            h3?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-            h4?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-            h5?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-            h6?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-            paragraph?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-          };
-          richTextWeights?: {
-            h1?: number | null;
-            h2?: number | null;
-            h3?: number | null;
-            h4?: number | null;
-            h5?: number | null;
-            h6?: number | null;
-            paragraph?: number | null;
-          };
-        };
-        image: string;
-        imageSide?: ('left' | 'right') | null;
-        button?: {
-          text?: string | null;
-          url?: string | null;
-        };
-        overlay?: {
-          overlayColor?:
-            | (
-                | 'secondary'
-                | 'primary'
-                | 'tertiary'
-                | 'primarySecondaryOpac'
-                | 'primaryTertiaryOpac'
-                | 'secondaryTertiaryOpac'
-                | 'secondaryPrimaryOpac'
-                | 'tertiaryPrimaryOpac'
-                | 'tertiarySecondaryOpac'
-                | 'primarySecondaryTertiaryOpac'
-                | 'primaryTertiarySecondaryOpac'
-                | 'secondaryPrimaryTertiaryOpac'
-                | 'secondaryTertiryPrimaryOpac'
-                | 'tertiaryPrimarySecondaryOpac'
-                | 'tertiarySecondaryPrimaryOpac'
-                | 'primarySecondary'
-                | 'primaryTertiary'
-                | 'secondaryTertiary'
-                | 'secondaryPrimary'
-                | 'tertiaryPrimary'
-                | 'tertiarySecondary'
-                | 'primarySecondaryTertiary'
-                | 'primaryTertiarySecondary'
-                | 'secondaryPrimaryTertiary'
-                | 'secondaryTertiryPrimary'
-                | 'tertiaryPrimarySecondary'
-                | 'tertiarySecondaryPrimary'
-              )
-            | null;
-          image?: string | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'textimagesection';
-      }
-    | {
-        heading: {
-          headingOne: string;
-          headingTwo?: string | null;
-          size?: ('sm' | 'md' | 'lg' | 'xl') | null;
-          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-          align?: ('start' | 'center' | 'end') | null;
-          level?: ('h1' | 'h2' | 'h3') | null;
-          weight?: number | null;
-        };
-        cards: {
-          text: {
-            richText: {
-              root: {
-                type: string;
-                children: {
-                  type: string;
-                  version: number;
-                  [k: string]: unknown;
-                }[];
-                direction: ('ltr' | 'rtl') | null;
-                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                indent: number;
-                version: number;
-              };
-              [k: string]: unknown;
-            };
-            richTextColors?: {
-              h1?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-              h2?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-              h3?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-              h4?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-              h5?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-              h6?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-              paragraph?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-            };
-            richTextWeights?: {
-              h1?: number | null;
-              h2?: number | null;
-              h3?: number | null;
-              h4?: number | null;
-              h5?: number | null;
-              h6?: number | null;
-              paragraph?: number | null;
-            };
-          };
-          align?: ('start' | 'center' | 'end') | null;
-          icon?:
-            | (
-                | 'Anniversary'
-                | 'BabyShower'
-                | 'Ball'
-                | 'Birthday'
-                | 'CompanyParty'
-                | 'Engagement'
-                | 'KidParty'
-                | 'OpeningParty'
-                | 'Party'
-                | 'TeamBuilding'
-                | 'Wedding'
-              )
-            | null;
-          color: 'secondary' | 'primary' | 'tertiary' | 'black' | 'white';
-          href?: string | null;
+          className?: string | null;
+          fontWeight?: ('sm' | 'md' | 'lg' | 'xl' | '2xl') | null;
           id?: string | null;
           blockName?: string | null;
-          blockType: 'cardsectioncard';
-        }[];
-        overlay?: {
-          overlayColor?:
-            | (
-                | 'secondary'
-                | 'primary'
-                | 'tertiary'
-                | 'primarySecondaryOpac'
-                | 'primaryTertiaryOpac'
-                | 'secondaryTertiaryOpac'
-                | 'secondaryPrimaryOpac'
-                | 'tertiaryPrimaryOpac'
-                | 'tertiarySecondaryOpac'
-                | 'primarySecondaryTertiaryOpac'
-                | 'primaryTertiarySecondaryOpac'
-                | 'secondaryPrimaryTertiaryOpac'
-                | 'secondaryTertiryPrimaryOpac'
-                | 'tertiaryPrimarySecondaryOpac'
-                | 'tertiarySecondaryPrimaryOpac'
-                | 'primarySecondary'
-                | 'primaryTertiary'
-                | 'secondaryTertiary'
-                | 'secondaryPrimary'
-                | 'tertiaryPrimary'
-                | 'tertiarySecondary'
-                | 'primarySecondaryTertiary'
-                | 'primaryTertiarySecondary'
-                | 'secondaryPrimaryTertiary'
-                | 'secondaryTertiryPrimary'
-                | 'tertiaryPrimarySecondary'
-                | 'tertiarySecondaryPrimary'
-              )
-            | null;
-          image?: string | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'cardssection';
-      }
-    | {
-        heading: {
-          headingOne: string;
-          headingTwo?: string | null;
-          size?: ('sm' | 'md' | 'lg' | 'xl') | null;
-          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-          align?: ('start' | 'center' | 'end') | null;
-          level?: ('h1' | 'h2' | 'h3') | null;
-          weight?: number | null;
-        };
-        for: {
-          heading: string;
-          points?:
-            | {
-                text: string;
-                id?: string | null;
-              }[]
-            | null;
-        };
-        against: {
-          heading: string;
-          points?:
-            | {
-                text: string;
-                id?: string | null;
-              }[]
-            | null;
-        };
-        overlay?: {
-          overlayColor?:
-            | (
-                | 'secondary'
-                | 'primary'
-                | 'tertiary'
-                | 'primarySecondaryOpac'
-                | 'primaryTertiaryOpac'
-                | 'secondaryTertiaryOpac'
-                | 'secondaryPrimaryOpac'
-                | 'tertiaryPrimaryOpac'
-                | 'tertiarySecondaryOpac'
-                | 'primarySecondaryTertiaryOpac'
-                | 'primaryTertiarySecondaryOpac'
-                | 'secondaryPrimaryTertiaryOpac'
-                | 'secondaryTertiryPrimaryOpac'
-                | 'tertiaryPrimarySecondaryOpac'
-                | 'tertiarySecondaryPrimaryOpac'
-                | 'primarySecondary'
-                | 'primaryTertiary'
-                | 'secondaryTertiary'
-                | 'secondaryPrimary'
-                | 'tertiaryPrimary'
-                | 'tertiarySecondary'
-                | 'primarySecondaryTertiary'
-                | 'primaryTertiarySecondary'
-                | 'secondaryPrimaryTertiary'
-                | 'secondaryTertiryPrimary'
-                | 'tertiaryPrimarySecondary'
-                | 'tertiarySecondaryPrimary'
-              )
-            | null;
-          image?: string | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'comparisonsection';
-      }
-    | {
-        heading: {
-          headingOne: string;
-          headingTwo?: string | null;
-          size?: ('sm' | 'md' | 'lg' | 'xl') | null;
-          color?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-          align?: ('start' | 'center' | 'end') | null;
-          level?: ('h1' | 'h2' | 'h3') | null;
-          weight?: number | null;
-        };
-        text: string;
-        image?: string | null;
-        button: {
+          blockType: 'TextBlock';
+        }[]
+      | null;
+    overlay?: {
+      overlayColor?:
+        | (
+            | 'white'
+            | 'secondary'
+            | 'secondaryOpac'
+            | 'primary'
+            | 'primaryOpac'
+            | 'tertiary'
+            | 'tertiaryOpac'
+            | 'whiteOpac'
+            | 'blackTransparent'
+            | 'transparentBlack'
+            | 'primaryTransparent'
+            | 'secondaryTransparent'
+            | 'tertiaryTransparent'
+            | 'transparentPrimary'
+            | 'transparentSecondary'
+            | 'transparentTertiary'
+            | 'primarySecondaryOpac'
+            | 'primaryTertiaryOpac'
+            | 'secondaryTertiaryOpac'
+            | 'secondaryPrimaryOpac'
+            | 'tertiaryPrimaryOpac'
+            | 'tertiarySecondaryOpac'
+            | 'primarySecondaryTertiaryOpac'
+            | 'primaryTertiarySecondaryOpac'
+            | 'secondaryPrimaryTertiaryOpac'
+            | 'secondaryTertiryPrimaryOpac'
+            | 'tertiaryPrimarySecondaryOpac'
+            | 'tertiarySecondaryPrimaryOpac'
+            | 'primarySecondary'
+            | 'primaryTertiary'
+            | 'secondaryTertiary'
+            | 'secondaryPrimary'
+            | 'tertiaryPrimary'
+            | 'tertiarySecondary'
+            | 'primarySecondaryTertiary'
+            | 'primaryTertiarySecondary'
+            | 'secondaryPrimaryTertiary'
+            | 'secondaryTertiryPrimary'
+            | 'tertiaryPrimarySecondary'
+            | 'tertiarySecondaryPrimary'
+          )
+        | null;
+      image?: string | null;
+    };
+    buttons?:
+      | {
           text: string;
-        };
-        webhook: string;
-        fields: (
-          | {
-              label: string;
-              placeholder: string;
-              spanTwo?: ('true' | 'false') | null;
-              id?: string | null;
-              blockName?: string | null;
-              blockType: 'formtextinput';
-            }
-          | {
-              label: string;
-              placeholder: string;
-              spanTwo?: ('true' | 'false') | null;
-              options: {
-                text: string;
-                value: string;
-                id?: string | null;
-                blockName?: string | null;
-                blockType: 'formselectoptions';
-              }[];
-              id?: string | null;
-              blockName?: string | null;
-              blockType: 'formselectinput';
-            }
-          | {
-              label: string;
-              value: string;
-              spanTwo?: ('true' | 'false') | null;
-              id?: string | null;
-              blockName?: string | null;
-              blockType: 'formcheckboxinput';
-            }
-        )[];
-        overlay?: {
-          overlayColor?:
+          textColor?:
             | (
                 | 'secondary'
                 | 'primary'
                 | 'tertiary'
+                | 'black'
+                | 'white'
+                | 'textLight'
                 | 'primarySecondaryOpac'
                 | 'primaryTertiaryOpac'
                 | 'secondaryTertiaryOpac'
@@ -634,82 +396,128 @@ export interface Page {
                 | 'tertiarySecondaryPrimary'
               )
             | null;
-          image?: string | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'formsection';
-      }
-    | {
-        text: string;
-        bubbles: (
-          | {
-              heading?: string | null;
-              text?: string | null;
-              textColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white') | null;
-              color?:
-                | (
-                    | 'secondary'
-                    | 'primary'
-                    | 'tertiary'
-                    | 'primarySecondaryOpac'
-                    | 'primaryTertiaryOpac'
-                    | 'secondaryTertiaryOpac'
-                    | 'secondaryPrimaryOpac'
-                    | 'tertiaryPrimaryOpac'
-                    | 'tertiarySecondaryOpac'
-                    | 'primarySecondaryTertiaryOpac'
-                    | 'primaryTertiarySecondaryOpac'
-                    | 'secondaryPrimaryTertiaryOpac'
-                    | 'secondaryTertiryPrimaryOpac'
-                    | 'tertiaryPrimarySecondaryOpac'
-                    | 'tertiarySecondaryPrimaryOpac'
-                    | 'primarySecondary'
-                    | 'primaryTertiary'
-                    | 'secondaryTertiary'
-                    | 'secondaryPrimary'
-                    | 'tertiaryPrimary'
-                    | 'tertiarySecondary'
-                    | 'primarySecondaryTertiary'
-                    | 'primaryTertiarySecondary'
-                    | 'secondaryPrimaryTertiary'
-                    | 'secondaryTertiryPrimary'
-                    | 'tertiaryPrimarySecondary'
-                    | 'tertiarySecondaryPrimary'
-                  )
-                | null;
-              column: {
-                start: number;
-                end: number;
-              };
-              row: {
-                start: number;
-                end: number;
-              };
-              id?: string | null;
-              blockName?: string | null;
-              blockType: 'masonrybubble';
-            }
-          | {
-              image: string;
-              column: {
-                start: number;
-                end: number;
-              };
-              row: {
-                start: number;
-                end: number;
-              };
-              id?: string | null;
-              blockName?: string | null;
-              blockType: 'masonrybubbleimage';
-            }
-        )[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'masonrysection';
-      }
-  )[];
+          bgColor?:
+            | (
+                | 'white'
+                | 'secondary'
+                | 'secondaryOpac'
+                | 'primary'
+                | 'primaryOpac'
+                | 'tertiary'
+                | 'tertiaryOpac'
+                | 'whiteOpac'
+                | 'blackTransparent'
+                | 'transparentBlack'
+                | 'primaryTransparent'
+                | 'secondaryTransparent'
+                | 'tertiaryTransparent'
+                | 'transparentPrimary'
+                | 'transparentSecondary'
+                | 'transparentTertiary'
+                | 'primarySecondaryOpac'
+                | 'primaryTertiaryOpac'
+                | 'secondaryTertiaryOpac'
+                | 'secondaryPrimaryOpac'
+                | 'tertiaryPrimaryOpac'
+                | 'tertiarySecondaryOpac'
+                | 'primarySecondaryTertiaryOpac'
+                | 'primaryTertiarySecondaryOpac'
+                | 'secondaryPrimaryTertiaryOpac'
+                | 'secondaryTertiryPrimaryOpac'
+                | 'tertiaryPrimarySecondaryOpac'
+                | 'tertiarySecondaryPrimaryOpac'
+                | 'primarySecondary'
+                | 'primaryTertiary'
+                | 'secondaryTertiary'
+                | 'secondaryPrimary'
+                | 'tertiaryPrimary'
+                | 'tertiarySecondary'
+                | 'primarySecondaryTertiary'
+                | 'primaryTertiarySecondary'
+                | 'secondaryPrimaryTertiary'
+                | 'secondaryTertiryPrimary'
+                | 'tertiaryPrimarySecondary'
+                | 'tertiarySecondaryPrimary'
+              )
+            | null;
+          size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+          rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
+          className?: string | null;
+          type?: ('submit' | 'button' | 'reset') | null;
+          link?: string | null;
+          id?: string | null;
+          blockName?: string | null;
+          blockType: 'ButtonBlock';
+        }[]
+      | null;
+    widgets?:
+      | {
+          label: string;
+          placeholder: string;
+          webhook: string;
+          button: {
+            text: string;
+            textColor?: ('secondary' | 'primary' | 'tertiary' | 'black' | 'white' | 'textLight') | null;
+            bgColor?:
+              | (
+                  | 'white'
+                  | 'secondary'
+                  | 'secondaryOpac'
+                  | 'primary'
+                  | 'primaryOpac'
+                  | 'tertiary'
+                  | 'tertiaryOpac'
+                  | 'whiteOpac'
+                  | 'blackTransparent'
+                  | 'transparentBlack'
+                  | 'primaryTransparent'
+                  | 'secondaryTransparent'
+                  | 'tertiaryTransparent'
+                  | 'transparentPrimary'
+                  | 'transparentSecondary'
+                  | 'transparentTertiary'
+                  | 'primarySecondaryOpac'
+                  | 'primaryTertiaryOpac'
+                  | 'secondaryTertiaryOpac'
+                  | 'secondaryPrimaryOpac'
+                  | 'tertiaryPrimaryOpac'
+                  | 'tertiarySecondaryOpac'
+                  | 'primarySecondaryTertiaryOpac'
+                  | 'primaryTertiarySecondaryOpac'
+                  | 'secondaryPrimaryTertiaryOpac'
+                  | 'secondaryTertiryPrimaryOpac'
+                  | 'tertiaryPrimarySecondaryOpac'
+                  | 'tertiarySecondaryPrimaryOpac'
+                  | 'primarySecondary'
+                  | 'primaryTertiary'
+                  | 'secondaryTertiary'
+                  | 'secondaryPrimary'
+                  | 'tertiaryPrimary'
+                  | 'tertiarySecondary'
+                  | 'primarySecondaryTertiary'
+                  | 'primaryTertiarySecondary'
+                  | 'secondaryPrimaryTertiary'
+                  | 'secondaryTertiryPrimary'
+                  | 'tertiaryPrimarySecondary'
+                  | 'tertiarySecondaryPrimary'
+                )
+              | null;
+            size?: ('4xl' | '3xl' | '2xl' | 'xl' | 'lg' | 'md' | 'sm') | null;
+            rounding?: ('sm' | 'md' | 'lg' | 'full') | null;
+            className?: string | null;
+            type?: ('submit' | 'button' | 'reset') | null;
+            link?: string | null;
+          };
+          successText?: string | null;
+          id?: string | null;
+          blockName?: string | null;
+          blockType: 'inputWidget';
+        }[]
+      | null;
+    id?: string | null;
+    blockName?: string | null;
+    blockType: 'BannerSection';
+  }[];
   updatedAt: string;
   createdAt: string;
 }
@@ -882,250 +690,20 @@ export interface PagesSelect<T extends boolean = true> {
   sections?:
     | T
     | {
-        herobackgroundimage?:
+        BannerSection?:
           | T
           | {
-              heading?:
+              texts?:
                 | T
                 | {
-                    headingOne?: T;
-                    headingTwo?: T;
-                    size?: T;
-                    color?: T;
-                    align?: T;
-                    level?: T;
-                    weight?: T;
-                  };
-              text?:
-                | T
-                | {
-                    text?: T;
-                    color?: T;
-                  };
-              buttonText?: T;
-              buttonUrl?: T;
-              image?: T;
-              bgColor?: T;
-              id?: T;
-              blockName?: T;
-            };
-        textimagesection?:
-          | T
-          | {
-              text?:
-                | T
-                | {
-                    richText?: T;
-                    richTextColors?:
+                    TextBlock?:
                       | T
                       | {
-                          h1?: T;
-                          h2?: T;
-                          h3?: T;
-                          h4?: T;
-                          h5?: T;
-                          h6?: T;
-                          paragraph?: T;
-                        };
-                    richTextWeights?:
-                      | T
-                      | {
-                          h1?: T;
-                          h2?: T;
-                          h3?: T;
-                          h4?: T;
-                          h5?: T;
-                          h6?: T;
-                          paragraph?: T;
-                        };
-                  };
-              image?: T;
-              imageSide?: T;
-              button?:
-                | T
-                | {
-                    text?: T;
-                    url?: T;
-                  };
-              overlay?:
-                | T
-                | {
-                    overlayColor?: T;
-                    image?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        cardssection?:
-          | T
-          | {
-              heading?:
-                | T
-                | {
-                    headingOne?: T;
-                    headingTwo?: T;
-                    size?: T;
-                    color?: T;
-                    align?: T;
-                    level?: T;
-                    weight?: T;
-                  };
-              cards?:
-                | T
-                | {
-                    cardsectioncard?:
-                      | T
-                      | {
-                          text?:
-                            | T
-                            | {
-                                richText?: T;
-                                richTextColors?:
-                                  | T
-                                  | {
-                                      h1?: T;
-                                      h2?: T;
-                                      h3?: T;
-                                      h4?: T;
-                                      h5?: T;
-                                      h6?: T;
-                                      paragraph?: T;
-                                    };
-                                richTextWeights?:
-                                  | T
-                                  | {
-                                      h1?: T;
-                                      h2?: T;
-                                      h3?: T;
-                                      h4?: T;
-                                      h5?: T;
-                                      h6?: T;
-                                      paragraph?: T;
-                                    };
-                              };
-                          align?: T;
-                          icon?: T;
+                          level?: T;
                           color?: T;
-                          href?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
-                  };
-              overlay?:
-                | T
-                | {
-                    overlayColor?: T;
-                    image?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        comparisonsection?:
-          | T
-          | {
-              heading?:
-                | T
-                | {
-                    headingOne?: T;
-                    headingTwo?: T;
-                    size?: T;
-                    color?: T;
-                    align?: T;
-                    level?: T;
-                    weight?: T;
-                  };
-              for?:
-                | T
-                | {
-                    heading?: T;
-                    points?:
-                      | T
-                      | {
                           text?: T;
-                          id?: T;
-                        };
-                  };
-              against?:
-                | T
-                | {
-                    heading?: T;
-                    points?:
-                      | T
-                      | {
-                          text?: T;
-                          id?: T;
-                        };
-                  };
-              overlay?:
-                | T
-                | {
-                    overlayColor?: T;
-                    image?: T;
-                  };
-              id?: T;
-              blockName?: T;
-            };
-        formsection?:
-          | T
-          | {
-              heading?:
-                | T
-                | {
-                    headingOne?: T;
-                    headingTwo?: T;
-                    size?: T;
-                    color?: T;
-                    align?: T;
-                    level?: T;
-                    weight?: T;
-                  };
-              text?: T;
-              image?: T;
-              button?:
-                | T
-                | {
-                    text?: T;
-                  };
-              webhook?: T;
-              fields?:
-                | T
-                | {
-                    formtextinput?:
-                      | T
-                      | {
-                          label?: T;
-                          placeholder?: T;
-                          spanTwo?: T;
-                          id?: T;
-                          blockName?: T;
-                        };
-                    formselectinput?:
-                      | T
-                      | {
-                          label?: T;
-                          placeholder?: T;
-                          spanTwo?: T;
-                          options?:
-                            | T
-                            | {
-                                formselectoptions?:
-                                  | T
-                                  | {
-                                      text?: T;
-                                      value?: T;
-                                      id?: T;
-                                      blockName?: T;
-                                    };
-                              };
-                          id?: T;
-                          blockName?: T;
-                        };
-                    formcheckboxinput?:
-                      | T
-                      | {
-                          label?: T;
-                          value?: T;
-                          spanTwo?: T;
+                          className?: T;
+                          fontWeight?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -1136,54 +714,46 @@ export interface PagesSelect<T extends boolean = true> {
                     overlayColor?: T;
                     image?: T;
                   };
-              id?: T;
-              blockName?: T;
-            };
-        masonrysection?:
-          | T
-          | {
-              text?: T;
-              bubbles?:
+              buttons?:
                 | T
                 | {
-                    masonrybubble?:
+                    ButtonBlock?:
                       | T
                       | {
-                          heading?: T;
                           text?: T;
                           textColor?: T;
-                          color?: T;
-                          column?:
-                            | T
-                            | {
-                                start?: T;
-                                end?: T;
-                              };
-                          row?:
-                            | T
-                            | {
-                                start?: T;
-                                end?: T;
-                              };
+                          bgColor?: T;
+                          size?: T;
+                          rounding?: T;
+                          className?: T;
+                          type?: T;
+                          link?: T;
                           id?: T;
                           blockName?: T;
                         };
-                    masonrybubbleimage?:
+                  };
+              widgets?:
+                | T
+                | {
+                    inputWidget?:
                       | T
                       | {
-                          image?: T;
-                          column?:
+                          label?: T;
+                          placeholder?: T;
+                          webhook?: T;
+                          button?:
                             | T
                             | {
-                                start?: T;
-                                end?: T;
+                                text?: T;
+                                textColor?: T;
+                                bgColor?: T;
+                                size?: T;
+                                rounding?: T;
+                                className?: T;
+                                type?: T;
+                                link?: T;
                               };
-                          row?:
-                            | T
-                            | {
-                                start?: T;
-                                end?: T;
-                              };
+                          successText?: T;
                           id?: T;
                           blockName?: T;
                         };

@@ -13,6 +13,8 @@ import { SubListings } from './collections/subListings'
 import { Places } from './collections/places'
 import { Categories } from './collections/categories'
 import { Pages } from './collections/pages'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)

@@ -6,22 +6,44 @@ export const ComparisonSectionBlock: Block = {
   fields: [
     headingField,
     {
-      name: 'for',
-      type: 'group',
+      label: 'Pro',
+      type: 'collapsible',
+      admin: { initCollapsed: true },
       fields: [
-        { name: 'heading', type: 'text', required: true },
-        { name: 'points', type: 'array', fields: [{ name: 'text', type: 'text', required: true }] },
+        {
+          name: 'for',
+          type: 'group',
+          fields: [
+            { name: 'heading', type: 'text', required: true },
+            {
+              name: 'points',
+              type: 'array',
+              fields: [{ name: 'text', type: 'text', required: true }],
+            },
+          ],
+          required: true,
+        },
       ],
-      required: true,
     },
     {
-      name: 'against',
-      type: 'group',
+      label: 'Proti',
+      type: 'collapsible',
+      admin: { initCollapsed: true },
       fields: [
-        { name: 'heading', type: 'text', required: true },
-        { name: 'points', type: 'array', fields: [{ name: 'text', type: 'text', required: true }] },
+        {
+          name: 'against',
+          type: 'group',
+          fields: [
+            { name: 'heading', type: 'text', required: true },
+            {
+              name: 'points',
+              type: 'array',
+              fields: [{ name: 'text', type: 'text', required: true }],
+            },
+          ],
+          required: true,
+        },
       ],
-      required: true,
     },
     overlayField,
   ],

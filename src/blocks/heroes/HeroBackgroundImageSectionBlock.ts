@@ -16,8 +16,6 @@ export const HeroBackgroundImageSectionBlock: Block = {
       ],
       required: true,
     },
-    { name: 'buttonText', type: 'text', required: true },
-    { name: 'buttonUrl', type: 'text', required: true },
     { name: 'image', type: 'text', required: true },
     { name: 'bgColor', type: 'select', options: getOptionsFromObject(colorsAndGradients) },
   ],

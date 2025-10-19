@@ -1,4 +1,9 @@
+import { roles } from '@/design/roles'
+import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import type { CollectionConfig } from 'payload'
+import payload from 'payload'
+import dotenv from 'dotenv'
+dotenv.config()
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -10,15 +15,20 @@ export const Users: CollectionConfig = {
     {
       name: 'role',
       type: 'select',
-      options: [
-        { label: 'Admin', value: 'admin' },
-        { label: 'Customer', value: 'customer' },
-        { label: 'Advertiser', value: 'advertiser' },
-      ],
+      options: getOptionsFromObject(roles),
       required: true,
       defaultValue: 'user',
+      saveToJWT: true,
     },
     // Email added by default
     // Add more fields as needed
   ],
+
+  hooks: {
+    beforeOperation: [
+      () => {
+        console.log('Payload secret:', process.env.PAYLOAD_SECRET)
+      },
+    ],
+  },
 }
