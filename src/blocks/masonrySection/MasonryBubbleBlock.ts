@@ -6,6 +6,7 @@ import { textsField } from '../_blocks/textBlock'
 
 export const MasonryBubbleBlock: Block = {
   slug: 'masonrybubble',
+  labels: { singular: 'Masonry bublina s textem', plural: 'Masonry bublina s textem' },
   fields: [
     textsField,
     { name: 'bgColor', type: 'select', options: getOptionsFromObject(colorsAndGradients) },
@@ -16,5 +17,6 @@ export const MasonryBubbleBlock: Block = {
 
 export const MasonryBubbleImageBlock: Block = {
   slug: 'masonrybubbleimage',
+  labels: { singular: 'Masonry obrázek', plural: 'Masonry obrázek' },
   fields: [{ name: 'image', type: 'text', required: true }, columnField, rowField],
 }

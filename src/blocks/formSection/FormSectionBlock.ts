@@ -8,6 +8,7 @@ import {
 import { textsField } from '../_blocks/textBlock'
 
 export const FormSectionBlock: Block = {
+  labels: { singular: 'Formulář', plural: 'Formuláře' },
   slug: 'FormSection',
   fields: [
     textsField,

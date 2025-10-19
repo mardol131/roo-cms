@@ -64,6 +64,36 @@ export const buttonField: Field = {
   ],
 }
 
+export function getButtonField(name: string, admin?: string) {
+  const field: Field = {
+    label: admin || 'Tlačítko',
+    type: 'collapsible',
+    admin: { initCollapsed: true },
+    fields: [
+      {
+        name: name,
+        type: 'group',
+        fields: [
+          { name: 'text', type: 'text', required: true },
+          { name: 'textColor', type: 'select', options: getOptionsFromObject(textColor) },
+          {
+            name: 'bgColor',
+            type: 'select',
+            options: getOptionsFromObject(colorsAndGradients),
+          },
+          { name: 'size', type: 'select', options: getOptionsFromObject(buttonSizeList) },
+          { name: 'rounding', type: 'select', options: getOptionsFromObject(rounding) },
+          { name: 'className', type: 'text' },
+          { name: 'type', type: 'select', options: getOptionsFromObject(buttonType) },
+          { name: 'link', type: 'text' },
+        ],
+      },
+    ],
+  }
+
+  return field
+}
+
 export const headingField: Field = {
   label: 'Nadpis',
   type: 'collapsible',

@@ -5,6 +5,7 @@ import { sides } from '@/design/orientation'
 import { textsField } from '../_blocks/textBlock'
 
 const imageOneBlock: Block = {
+  labels: { singular: 'Jeden obrázek', plural: 'Jeden obrázek' },
   slug: 'imageOne',
   fields: [
     {
@@ -20,6 +21,7 @@ const imageOneBlock: Block = {
 
 const imageGridBlock: Block = {
   slug: 'imageGrid',
+  labels: { singular: 'Obrázkový grid', plural: 'Obrázkový grid' },
   fields: [
     {
       name: 'imageOne',
@@ -59,6 +61,7 @@ const imageGridBlock: Block = {
 
 export const ImageTextSectionBlock: Block = {
   slug: 'ImageTextSection',
+  labels: { singular: 'Sekce s textem a obrázkem', plural: 'Sekce s textem a obrázkem' },
   fields: [
     textsField,
     {

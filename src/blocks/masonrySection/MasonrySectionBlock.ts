@@ -5,6 +5,7 @@ import { getTextsField, textsField } from '../_blocks/textBlock'
 
 export const MasonrySectionBlock: Block = {
   slug: 'MasonrySection',
+  labels: { singular: 'Masonry sekce', plural: 'Masonry sekce' },
   fields: [
     getTextsField('textsTop'),
     getTextsField('textsBottom'),

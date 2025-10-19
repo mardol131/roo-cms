@@ -5,6 +5,7 @@ import { widgetsField } from '../_blocks/widgetsBlocks'
 
 export const BannerSectionBlock: Block = {
   slug: 'BannerSection',
+  labels: { singular: 'Banner', plural: 'Bannery' },
   fields: [
     { name: 'texts', type: 'blocks', blocks: [TextBlock] },
     overlayField,

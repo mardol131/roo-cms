@@ -5,5 +5,6 @@ import { widgetsField } from '../_blocks/widgetsBlocks'
 
 export const TextSectionBlock: Block = {
   slug: 'TextSection',
+  labels: { singular: 'Textová sekce', plural: 'Textové sekce' },
   fields: [textsField, buttonsField],
 }

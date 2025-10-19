@@ -4,6 +4,7 @@ import { textsField } from '../_blocks/textBlock'
 
 export const ComparisonSectionBlock: Block = {
   slug: 'ComparisonSection',
+  labels: { singular: 'Pro a proti', plural: 'Pro a proti' },
   fields: [
     textsField,
     {
