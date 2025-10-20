@@ -1,5 +1,5 @@
 import { Block } from 'payload'
-import { headingField, overlayField } from '../_global/fields'
+import { getOverlayField, headingField, overlayField } from '../_global/fields'
 import { textsField } from '../_blocks/textBlock'
 
 export const ComparisonSectionBlock: Block = {
@@ -22,7 +22,7 @@ export const ComparisonSectionBlock: Block = {
               type: 'array',
               fields: [{ name: 'text', type: 'text', required: true }],
             },
-            overlayField,
+            getOverlayField(),
           ],
           required: true,
         },
@@ -43,11 +43,12 @@ export const ComparisonSectionBlock: Block = {
               type: 'array',
               fields: [{ name: 'text', type: 'text', required: true }],
             },
-            overlayField,
+            getOverlayField(),
           ],
           required: true,
         },
       ],
     },
+    getOverlayField(),
   ],
 }

@@ -25,6 +25,60 @@ export const overlayField: Field = {
   ],
 }
 
+export function getOverlayField(name?: string, label?: string) {
+  const field: Field = {
+    label: label || 'Pozadí sekce',
+    type: 'collapsible',
+    admin: { initCollapsed: true },
+    fields: [
+      {
+        name: name || 'overlay',
+        type: 'group',
+        fields: [
+          {
+            name: 'overlayColor',
+            type: 'select',
+            options: getOptionsFromObject(colorsAndGradients),
+          },
+          {
+            name: 'overlayClassname',
+            type: 'text',
+          },
+          imageField,
+          {
+            label: 'Nápověda',
+            type: 'collapsible',
+            admin: { initCollapsed: true },
+            fields: [
+              {
+                name: 'advice', // required
+                type: 'json', // required
+
+                required: true,
+                admin: { readOnly: true },
+                defaultValue: () => {
+                  return {
+                    Nápověda: 'V classname používáš Tailwind. Pochopíš to z kódu.',
+                    simple: 'bg-red',
+                    gradienty: 'bg-linear-<stupně natočení> from-red-500 via-blue-500 to-green-500',
+                    ourColors: 'from-red-500 via-blue-500 to-green-500',
+                    transparency:
+                      'Za barvu dát /<číslo>, vyjadřuje procento. Takže třeba via-blue-500/40 nebo bg-black/20',
+                  }
+                },
+                access: {
+                  update: () => false,
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  }
+  return field
+}
+
 export const buttonsField: Field = {
   label: 'Tlačítka',
   type: 'collapsible',
@@ -263,11 +317,18 @@ export function getRichTextField(name?: string) {
 }
 
 export const imageField: Field = {
-  name: 'image',
-  type: 'group',
+  label: 'Obrázek',
+  type: 'collapsible',
+  admin: { initCollapsed: true },
   fields: [
-    { name: 'src', type: 'text', required: true },
-    { name: 'alt', type: 'text', required: true },
+    {
+      name: 'image',
+      type: 'group',
+      fields: [
+        { name: 'src', type: 'text' },
+        { name: 'alt', type: 'text' },
+      ],
+    },
   ],
 }
 

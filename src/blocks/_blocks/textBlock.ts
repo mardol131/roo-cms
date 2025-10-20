@@ -1,8 +1,6 @@
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
-import { iconsListString } from '@/icons/iconsList'
 import { Block, Field } from 'payload'
-import { textAlign } from '@/design/orientation'
-import { getRichTextField } from '../_global/fields'
+
 import { fontWeight, textColor, textLevels } from '../types/textTypes'
 
 export const TextBlock: Block = {
@@ -24,6 +22,11 @@ export const TextBlock: Block = {
 export const textsField: Field = { name: 'texts', type: 'blocks', blocks: [TextBlock] }
 
 export function getTextsField(name: string) {
-  const field: Field = { name: name, type: 'blocks', blocks: [TextBlock] }
+  const field: Field = {
+    label: 'Texty',
+    type: 'collapsible',
+    fields: [{ name: name, type: 'blocks', blocks: [TextBlock] }],
+    admin: { initCollapsed: true },
+  }
   return field
 }

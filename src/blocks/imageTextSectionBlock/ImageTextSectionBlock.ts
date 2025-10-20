@@ -1,5 +1,5 @@
 import { Block, Field } from 'payload'
-import { buttonsField, getRichTextField, overlayField } from '../_global/fields'
+import { buttonsField, getOverlayField, getRichTextField, overlayField } from '../_global/fields'
 import { getOptionsFromObject } from '@/functions/getOptionsFromObject'
 import { sides } from '@/design/orientation'
 import { textsField } from '../_blocks/textBlock'
@@ -67,12 +67,13 @@ export const ImageTextSectionBlock: Block = {
     {
       name: 'imagePart',
       type: 'blocks',
-      blocks: [imageOneBlock, imageGridBlock],
+      blocks: [imageOneBlock],
       minRows: 1,
       maxRows: 1,
     },
     buttonsField,
     { name: 'textSide', type: 'select', options: getOptionsFromObject(sides) },
-    overlayField,
+    getOverlayField('outerOverlay'),
+    getOverlayField('innerOverlay'),
   ],
 }
